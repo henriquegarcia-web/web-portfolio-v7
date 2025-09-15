@@ -1,9 +1,14 @@
-import React from "react";
-import AppRouter from "./router";
+import React from 'react'
 
-// Componente principal da aplicação
+import { AppProviders } from './contexts'
+import AppRouter from './router'
+
 const App: React.FC = () => {
-  return <AppRouter />;
-};
+  return (
+    <AppProviders>
+      <AppRouter />
+    </AppProviders>
+  )
+}
 
-export default App;
+export default App
