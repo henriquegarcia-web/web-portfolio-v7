@@ -10,6 +10,7 @@ export const theme = {
     dark: '#343a40',
     white: '#ffffff',
     black: '#000000',
+    borderPrimary: 'rgba(255, 255, 255, 0.1)',
   },
   spacing: {
     xs: '0.25rem',
@@ -18,6 +19,14 @@ export const theme = {
     lg: '1.5rem',
     xl: '2rem',
     xxl: '3rem',
+  },
+  sizes: {
+    header: {
+      height: '60px',
+    },
+    wrapper: {
+      maxWidth: '1000px',
+    },
   },
   breakpoints: {
     mobile: '768px',
@@ -50,5 +59,11 @@ export const theme = {
     sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
     md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
     lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+  },
+  radius: {
+    sm: '4px',
+    md: '8px',
+    lg: '16px',
+    full: '9999px',
   },
 }

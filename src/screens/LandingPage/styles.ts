@@ -1,24 +1,27 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 // Container principal da landing page
 export const Container = styled.div`
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
 
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #333;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 20% 80%,
+        rgba(120, 119, 198, 0.3) 0%,
+        transparent 50%
+      ),
+      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.2) 0%, transparent 50%);
+    pointer-events: none;
   }
-
-  p {
-    font-size: 1.2rem;
-    color: #666;
-    max-width: 600px;
-  }
-`;
+`
