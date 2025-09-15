@@ -23,8 +23,6 @@ export const Content = styled.div`
   align-items: center;
   flex: 1;
   max-width: ${theme.sizes.wrapper.maxWidth};
-
-  /* border: 1px solid red; */
 `
 
 export const Greeting = styled.h2`
@@ -71,65 +69,14 @@ export const Description = styled.p`
   color: #a0a0a0;
 `
 
-export const CTAButton = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, #64ffda, #ff6b6b);
-  color: #000000;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+export const CTAWrapper = styled.div`
   margin-bottom: 3rem;
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(100, 255, 218, 0.4);
-  }
-
-  svg {
-    transition: transform 0.3s ease;
-  }
-
-  &:hover svg {
-    transform: translateX(5px);
-  }
 `
 
 export const SocialLinks = styled.div`
   display: flex;
   gap: 1rem;
-
-  a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-
-    text-decoration: none;
-
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-
-    svg {
-      font-size: ${theme.fonts.sizes.lg};
-    }
-
-    &:hover {
-      transform: translateY(-3px);
-
-      background: rgba(100, 255, 218, 0.2);
-      box-shadow: 0 10px 20px rgba(100, 255, 218, 0.3);
-    }
-  }
+  justify-content: center;
 `
 
 // export const HeroImage = styled.div`

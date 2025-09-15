@@ -1,8 +1,7 @@
 import React from 'react'
 
 import * as S from './styles'
-import { FaGithub, FaLinkedinIn, FaBehance, FaWhatsapp } from 'react-icons/fa'
-
+import { Button } from '@/components'
 import { IPersonalInfo } from '@/utils/types'
 
 interface HeroSectionProps {
@@ -24,27 +23,25 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
         <S.Title>{data.title}</S.Title>
         <S.Description>{data.heroSummary}</S.Description>
 
-        <S.CTAButton href="#contact">
-          Fale comigo
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <FaWhatsapp />
-          </svg>
-        </S.CTAButton>
+        <S.CTAWrapper>
+          <Button href="#contact" icon="whatsapp" size="large">
+            Fale comigo
+          </Button>
+        </S.CTAWrapper>
 
         <S.SocialLinks>
-          {socialLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.name}
-            >
-              {link.icon === 'github' && <FaGithub />}
-              {link.icon === 'linkedin' && <FaLinkedinIn />}
-              {link.icon === 'behance' && <FaBehance />}
-            </a>
-          ))}
+          {socialLinks.map((link) => {
+            return (
+              <Button
+                key={link.name}
+                href={link.url}
+                icon={link.icon as any}
+                variant="primary"
+                size="small"
+                aria-label={link.name}
+              />
+            )
+          })}
         </S.SocialLinks>
 
         <S.FloatingElements>
@@ -54,28 +51,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
           <S.Element className="element-4">Node.js</S.Element>
         </S.FloatingElements>
       </S.Content>
-
-      {/* <S.HeroImage>
-        <S.AvatarContainer>
-          <S.Avatar>
-            <S.AvatarInner>
-              <S.CodeSymbols>
-                <span>&lt;/&gt;</span>
-                <span>{'{'}</span>
-                <span>{'}'}</span>
-                <span>React</span>
-                <span>TS</span>
-              </S.CodeSymbols>
-            </S.AvatarInner>
-          </S.Avatar>
-          <S.FloatingElements>
-            <S.Element className="element-1">React</S.Element>
-            <S.Element className="element-2">TypeScript</S.Element>
-            <S.Element className="element-3">Next.js</S.Element>
-            <S.Element className="element-4">Node.js</S.Element>
-          </S.FloatingElements>
-        </S.AvatarContainer>
-      </S.HeroImage> */}
     </S.HeroSection>
   )
 }
