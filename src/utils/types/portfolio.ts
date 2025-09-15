@@ -5,6 +5,7 @@ export interface IPersonalInfo {
   phone: string
   location: string
   summary: string
+  heroSummary: string
   avatar?: string
   socialLinks?: {
     github?: string

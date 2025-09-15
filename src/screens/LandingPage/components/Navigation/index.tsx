@@ -1,31 +1,41 @@
 import React from 'react'
 
+import { useSmoothScroll } from '@/hooks'
+
 import * as S from './styles'
 
-import { IPersonalInfo } from '@/utils/types'
-
 interface NavigationProps {
-  data: IPersonalInfo
+  activeSection: string
+  onMenuItemClick: (sectionId: string) => void
 }
 
-const Navigation: React.FC<NavigationProps> = ({ data }) => {
+const Navigation: React.FC<NavigationProps> = ({ activeSection, onMenuItemClick }) => {
+  const { scrollToElement } = useSmoothScroll()
+
   const menuItems = [
-    { id: 'home', label: 'Home', href: '#home' },
-    { id: 'about', label: 'About', href: '#about' },
-    { id: 'skills', label: 'Skills', href: '#skills' },
-    { id: 'projects', label: 'Projects', href: '#projects' },
-    { id: 'experience', label: 'Experience', href: '#experience' },
-    { id: 'contact', label: 'Contact', href: '#contact' },
+    { id: 'home', label: 'Início', href: '#home' },
+    { id: 'about', label: 'Sobre', href: '#about' },
+    { id: 'skills', label: 'Habilidades', href: '#skills' },
+    { id: 'projects', label: 'Projetos', href: '#projects' },
+    { id: 'experience', label: 'Experiência', href: '#experience' },
+    { id: 'contact', label: 'Contato', href: '#contact' },
   ]
 
-  const handleMenuItemClick = () => {}
+  const handleMenuItemClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string,
+  ) => {
+    e.preventDefault()
+    scrollToElement(sectionId)
+    onMenuItemClick(sectionId)
+  }
 
   return (
     <S.Nav>
       <S.Menu>
         {menuItems.map((item) => (
-          <S.MenuItem key={item.id}>
-            <a href={item.href} onClick={handleMenuItemClick}>
+          <S.MenuItem key={item.id} isActive={activeSection === item.id}>
+            <a href={item.href} onClick={(e) => handleMenuItemClick(e, item.id)}>
               {item.label}
             </a>
           </S.MenuItem>

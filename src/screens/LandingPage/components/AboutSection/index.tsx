@@ -34,9 +34,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
       <Content>
         <Description>
           <Text>
-            Sou um <Highlight>Desenvolvedor Full-Stack</Highlight> com mais de 5 anos de
-            experiência, especializado em projetos web e mobile com foco em front-end
-            moderno.
+            {data.summary ||
+              'Sou um Desenvolvedor Full-Stack com mais de 5 anos de experiência, especializado em projetos web e mobile com foco em front-end moderno.'}
           </Text>
 
           <Text>

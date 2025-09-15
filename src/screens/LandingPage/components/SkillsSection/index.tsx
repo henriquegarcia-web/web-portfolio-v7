@@ -3,7 +3,6 @@ import React from 'react'
 import { ISkill } from '@/utils/types'
 import {
   Container,
-  Content,
   SectionTitle,
   SkillCard,
   SkillCategory,

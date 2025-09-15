@@ -9,6 +9,8 @@ export const USER_DATA: IPortfolioData = {
     location: 'Natal, RN',
     summary:
       'Desenvolvedor Full-Stack com mais de 5 anos de experiência, especializado em projetos web e mobile com foco em front-end moderno. Tenho domínio sólido de React, Next.js e TypeScript, atuando em todas as etapas do ciclo de desenvolvimento — da arquitetura à entrega em produção. Já criei mais de 20 sistemas completos, incluindo SaaS, plataformas administrativas, produtos digitais e integração com gateways de pagamento. Forte experiência com autenticação, dashboards dinâmicos, formulários complexos, SEO técnico, otimizações de performance, CI/CD e testes automatizados. Trabalho com agilidade, visão de produto e capacidade comprovada de transformar ideias em plataformas reais, escaláveis e prontas para o mercado.',
+    heroSummary:
+      'Crio soluções digitais que resolvem problemas reais e geram valor, da concepção à entrega final.',
     socialLinks: {
       github: 'https://github.com/henriquegarcia',
       linkedin: 'https://linkedin.com/in/henriquegarcia',

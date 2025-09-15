@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-// Container principal da landing page
-export const Container = styled.div`
+export const LandingPage = styled.div`
   min-height: 100vh;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
   color: #ffffff;
@@ -20,8 +19,8 @@ export const Container = styled.div`
         rgba(120, 119, 198, 0.3) 0%,
         transparent 50%
       ),
-      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.2) 0%, transparent 50%);
+      radial-gradient(circle at 80% 20%, rgba(30, 7, 20, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(13, 23, 30, 0.2) 0%, transparent 50%);
     pointer-events: none;
   }
 `
