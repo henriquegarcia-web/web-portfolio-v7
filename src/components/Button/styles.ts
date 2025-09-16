@@ -13,7 +13,6 @@ const getButtonVariantStyles = (variant: string) => {
 
         &:hover {
           background: #2a2a3e;
-          box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
         }
       `
     case 'outline':
@@ -24,7 +23,6 @@ const getButtonVariantStyles = (variant: string) => {
 
         &:hover {
           background: rgba(100, 255, 218, 0.1);
-          box-shadow: 0 8px 25px rgba(100, 255, 218, 0.2);
         }
       `
     case 'primary':
@@ -36,7 +34,6 @@ const getButtonVariantStyles = (variant: string) => {
 
         &:hover {
           background: #1a1a1a;
-          box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3);
         }
       `
   }
@@ -79,9 +76,7 @@ const getIconSizeStyles = (size: string) => {
         border-radius: 50%;
 
         svg {
-          width: 16px;
-          height: 16px;
-          font-size: 16px;
+          font-size: 18px;
         }
       `
     case 'large':
@@ -92,9 +87,7 @@ const getIconSizeStyles = (size: string) => {
         border-radius: 50%;
 
         svg {
-          width: 20px;
-          height: 20px;
-          font-size: 20px;
+          font-size: 22px;
         }
       `
     case 'medium':
@@ -106,9 +99,7 @@ const getIconSizeStyles = (size: string) => {
         border-radius: 50%;
 
         svg {
-          width: 18px;
-          height: 18px;
-          font-size: 18px;
+          font-size: 20px;
         }
       `
   }
@@ -120,7 +111,7 @@ export const Button = styled.button<IButtonProps & { hasIcon?: boolean }>`
   align-items: center;
   justify-content: space-between;
   border-radius: ${theme.radius.full};
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
@@ -137,9 +128,9 @@ export const Button = styled.button<IButtonProps & { hasIcon?: boolean }>`
     box-shadow: none !important;
   }
 
-  &:not(:disabled):hover {
+  /* &:not(:disabled):hover {
     transform: translateY(-2px);
-  }
+  } */
 `
 
 export const ButtonText = styled.span`
@@ -179,9 +170,7 @@ const getIconInternalSizeStyles = (size: string) => {
         margin-right: 4px;
 
         svg {
-          width: 14px;
-          height: 14px;
-          font-size: 14px;
+          font-size: 16px;
         }
       `
     case 'large':
@@ -191,9 +180,7 @@ const getIconInternalSizeStyles = (size: string) => {
         margin-right: 6px;
 
         svg {
-          width: 18px;
-          height: 18px;
-          font-size: 18px;
+          font-size: 20px;
         }
       `
     case 'medium':
@@ -204,9 +191,7 @@ const getIconInternalSizeStyles = (size: string) => {
         margin-right: 4px;
 
         svg {
-          width: 16px;
-          height: 16px;
-          font-size: 16px;
+          font-size: 18px;
         }
       `
   }
@@ -252,7 +237,7 @@ export const ButtonIcon = styled.button<{ variant?: string; size?: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   border-radius: 50%;
   position: relative;
   cursor: pointer;
@@ -270,7 +255,7 @@ export const ButtonIcon = styled.button<{ variant?: string; size?: string }>`
     box-shadow: none !important;
   }
 
-  &:not(:disabled):hover {
+  /* &:not(:disabled):hover {
     transform: translateY(-2px);
-  }
+  } */
 `

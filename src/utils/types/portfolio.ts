@@ -1,6 +1,9 @@
 export interface IPersonalInfo {
   name: string
-  title: string
+  title: {
+    main: string
+    hero: string[]
+  }
   email: string
   phone: string
   location: string
@@ -10,9 +13,16 @@ export interface IPersonalInfo {
   socialLinks?: {
     github?: string
     linkedin?: string
-    twitter?: string
+    behance?: string
     instagram?: string
   }
+  interests: string[]
+}
+
+export interface ITechnicalArea {
+  title: string
+  icon: string
+  description: string
 }
 
 export interface IWorkExperience {
@@ -73,6 +83,7 @@ export interface IProject {
 
 export interface IPortfolioData {
   personal: IPersonalInfo
+  technicalAreas: ITechnicalArea[]
   experience: IWorkExperience[]
   education: IEducation[]
   certifications: ICertification[]

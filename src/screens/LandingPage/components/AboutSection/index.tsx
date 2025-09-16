@@ -1,75 +1,88 @@
 import React from 'react'
 
-import { IPersonalInfo } from '@/utils/types'
-import {
-  Container,
-  Content,
-  Description,
-  Highlight,
-  SectionTitle,
-  Stats,
-  StatItem,
-  Text,
-} from './styles'
+import * as S from './styles'
+
+import { SectionHeader, Button, InfoCard } from '@/components'
+import { IPortfolioData } from '@/utils/types'
 
 interface AboutSectionProps {
-  data: IPersonalInfo
+  data: IPortfolioData
 }
 
 const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
-  const stats = [
-    { label: 'Anos de Experiência', value: '5+' },
-    { label: 'Projetos Completos', value: '20+' },
-    { label: 'Tecnologias', value: '30+' },
-    { label: 'Clientes Satisfeitos', value: '15+' },
-  ]
+  const { personal, education, technicalAreas } = data
 
   return (
-    <Container id="about">
-      <SectionTitle>
-        <span>About Me</span>
-        <div className="underline" />
-      </SectionTitle>
+    <S.AboutSection id="about">
+      <SectionHeader
+        mainTitle="Sobre"
+        backgroundText="Sobre Mim"
+        subtitle="Quem sou eu?"
+      />
 
-      <Content>
-        <Description>
-          <Text>
-            {data.summary ||
-              'Sou um Desenvolvedor Full-Stack com mais de 5 anos de experiência, especializado em projetos web e mobile com foco em front-end moderno.'}
-          </Text>
+      <S.Content>
+        <S.LeftColumn>
+          <ContentSection title="O Henrique" children={personal.summary} />
 
-          <Text>
-            Tenho domínio sólido de <Highlight>React</Highlight>,{' '}
-            <Highlight>Next.js</Highlight> e <Highlight>TypeScript</Highlight>, atuando em
-            todas as etapas do ciclo de desenvolvimento — da arquitetura à entrega em
-            produção.
-          </Text>
+          <S.CardsContainer>
+            <InfoCard
+              icon="🎓"
+              title="Educação"
+              description={`${education[0]?.institution} - ${education[0]?.degree}`}
+            />
 
-          <Text>
-            Já criei mais de 20 sistemas completos, incluindo <Highlight>SaaS</Highlight>,{' '}
-            <Highlight>plataformas administrativas</Highlight>,{' '}
-            <Highlight>produtos digitais</Highlight> e{' '}
-            <Highlight>integração com gateways de pagamento</Highlight>.
-          </Text>
+            <InfoCard
+              icon="💡"
+              title="Interesses"
+              description={personal.interests.join(', ')}
+            />
+          </S.CardsContainer>
 
-          <Text>
-            Forte experiência com autenticação, dashboards dinâmicos, formulários
-            complexos, <Highlight>SEO técnico</Highlight>, otimizações de performance,{' '}
-            <Highlight>CI/CD</Highlight> e <Highlight>testes automatizados</Highlight>.
-          </Text>
-        </Description>
+          <S.DownloadButton>
+            <Button
+              variant="primary"
+              size="large"
+              icon="download"
+              onClick={() => window.open(data.resumeUrl, '_blank')}
+            >
+              Download CV
+            </Button>
+          </S.DownloadButton>
+        </S.LeftColumn>
 
-        <Stats>
-          {stats.map((stat, index) => (
-            <StatItem key={index}>
-              <div className="value">{stat.value}</div>
-              <div className="label">{stat.label}</div>
-            </StatItem>
-          ))}
-        </Stats>
-      </Content>
-    </Container>
+        <S.RightColumn>
+          <ContentSection title="Áreas de Foco">
+            <S.TechnicalsWrapper>
+              {technicalAreas.map((area, index) => (
+                <InfoCard
+                  key={index}
+                  icon={area.icon}
+                  title={area.title}
+                  description={area.description}
+                />
+              ))}
+            </S.TechnicalsWrapper>
+          </ContentSection>
+        </S.RightColumn>
+      </S.Content>
+    </S.AboutSection>
   )
 }
 
 export default AboutSection
+
+// ====================================== CONTENT SECTION
+
+interface IContentSection {
+  title: string
+  children: React.ReactNode
+}
+
+export const ContentSection: React.FC<IContentSection> = ({ title, children }) => {
+  return (
+    <S.ContentSection>
+      <S.SectionTitle>{title}</S.SectionTitle>
+      <S.SectionContent>{children}</S.SectionContent>
+    </S.ContentSection>
+  )
+}

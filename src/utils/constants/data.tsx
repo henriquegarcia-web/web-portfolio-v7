@@ -3,20 +3,45 @@ import { IPortfolioData } from '@/utils/types'
 export const USER_DATA: IPortfolioData = {
   personal: {
     name: 'Henrique Garcia',
-    title: 'Desenvolvedor Full-Stack | Foco em Front-End',
+    title: {
+      main: 'Desenvolvedor Full-Stack | Foco em Front-End',
+      hero: ['Full-Stack', 'Front-End', 'E-commerce', 'Mobile', 'de Jogos', 'Back-End'],
+    },
     email: 'henriquegarcia.tech@gmail.com',
     phone: '+55 84 99814-7860',
     location: 'Natal, RN',
     summary:
-      'Desenvolvedor Full-Stack com mais de 5 anos de experiência, especializado em projetos web e mobile com foco em front-end moderno. Tenho domínio sólido de React, Next.js e TypeScript, atuando em todas as etapas do ciclo de desenvolvimento — da arquitetura à entrega em produção. Já criei mais de 20 sistemas completos, incluindo SaaS, plataformas administrativas, produtos digitais e integração com gateways de pagamento. Forte experiência com autenticação, dashboards dinâmicos, formulários complexos, SEO técnico, otimizações de performance, CI/CD e testes automatizados. Trabalho com agilidade, visão de produto e capacidade comprovada de transformar ideias em plataformas reais, escaláveis e prontas para o mercado.',
+      'Sou um profissional proativo e movido por desafios, com mais de cinco anos dedicados à construção de softwares. Tenho uma abordagem orientada à solução e o hábito de me aprofundar em novas tecnologias de forma autodidata. Em meu tempo livre, gosto de aplicar minhas habilidades em projetos variados, que vão desde a construção de aplicativos complexos até o desenvolvimento de jogos.',
     heroSummary:
       'Crio soluções digitais que resolvem problemas reais e geram valor, da concepção à entrega final.',
     socialLinks: {
-      github: 'https://github.com/henriquegarcia',
-      linkedin: 'https://linkedin.com/in/henriquegarcia',
-      twitter: 'https://twitter.com/henriquegarcia',
+      github: 'https://github.com/henriquegarcia-web',
+      linkedin: 'https://www.linkedin.com/in/henrique-garcia-dev',
+      behance: 'https://www.behance.net/henrique-garcia-dev',
     },
+    interests: ['Código Aberto', 'UX', 'Jogos 3D Realistas', 'IA', 'Metodologias Ágeis'],
   },
+
+  technicalAreas: [
+    {
+      title: 'E-Commerce',
+      icon: '💻',
+      description:
+        'Soluções de e-commerce com foco em performance, SEO, Checkout e Integrações',
+    },
+    {
+      title: 'Sistemas de Gestão',
+      icon: '⚙️',
+      description:
+        'Plataformas de Gestão Complexas, Sistemas Multi-Plataforma, Multi-Tenant e SaaS',
+    },
+    {
+      title: 'Resolução de Problemas',
+      icon: '💡',
+      description:
+        'Foco na resolução prática, usando princípios de arquitetura sólida para entregar resultados eficientes e de alta qualidade',
+    },
+  ],
 
   experience: [
     {

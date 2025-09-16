@@ -6,6 +6,45 @@ const float = keyframes`
   50% { transform: translateY(-20px); }
 `
 
+const blink = keyframes`
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+`
+
+const gradientShift = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+`
+
+const shimmer = keyframes`
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+`
+
+const glow = keyframes`
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(100, 255, 218, 0.3)) 
+            drop-shadow(0 0 40px rgba(255, 107, 107, 0.2))
+            drop-shadow(0 0 60px rgba(255, 217, 61, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(100, 255, 218, 0.5)) 
+            drop-shadow(0 0 60px rgba(255, 107, 107, 0.3))
+            drop-shadow(0 0 90px rgba(255, 217, 61, 0.2));
+  }
+`
+
 export const HeroSection = styled.section`
   position: relative;
   display: flex;
@@ -37,12 +76,69 @@ export const Name = styled.h1`
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #64ffda, #ff6b6b, #ffd93d);
+  position: relative;
+  line-height: 1.1;
+  text-align: center;
+  animation: ${glow} 3s ease-in-out infinite;
+
+  /* Gradiente animado principal */
+  background: linear-gradient(
+    135deg,
+    #64ffda 0%,
+    #ff6b6b 25%,
+    #ffd93d 50%,
+    #ff6b6b 75%,
+    #64ffda 100%
+  );
+  background-size: 300% 300%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 1.1;
-  text-align: center;
+  animation: ${gradientShift} 4s ease-in-out infinite, ${glow} 3s ease-in-out infinite;
+
+  /* Efeito shimmer adicional */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: ${shimmer} 3s ease-in-out infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    pointer-events: none;
+  }
+
+  /* Efeito de brilho sutil */
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(100, 255, 218, 0.1) 0%,
+      rgba(255, 107, 107, 0.1) 50%,
+      rgba(255, 217, 61, 0.1) 100%
+    );
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: ${gradientShift} 4s ease-in-out infinite reverse;
+    filter: blur(1px);
+    z-index: -1;
+  }
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -59,6 +155,18 @@ export const Title = styled.h2`
   color: #ffffff;
 `
 
+export const TypewriterText = styled.span`
+  color: #64ffda;
+  font-weight: 600;
+
+  &::after {
+    content: '|';
+    color: #64ffda;
+    animation: ${blink} 1s infinite;
+    margin-left: 2px;
+  }
+`
+
 export const Description = styled.p`
   margin-bottom: 2rem;
 
@@ -70,6 +178,9 @@ export const Description = styled.p`
 `
 
 export const CTAWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 3rem;
 `
 
@@ -78,78 +189,6 @@ export const SocialLinks = styled.div`
   gap: 1rem;
   justify-content: center;
 `
-
-// export const HeroImage = styled.div`
-//   flex: 1;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   position: relative;
-//   z-index: 1;
-// `
-
-// export const AvatarContainer = styled.div`
-//   position: relative;
-//   width: 400px;
-//   height: 400px;
-
-//   @media (max-width: 768px) {
-//     width: 300px;
-//     height: 300px;
-//   }
-// `
-
-// export const Avatar = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   border-radius: 50%;
-//   background: linear-gradient(135deg, #64ffda, #ff6b6b, #ffd93d);
-//   padding: 4px;
-//   animation: ${float} 6s ease-in-out infinite;
-// `
-
-// export const AvatarInner = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   border-radius: 50%;
-//   background: linear-gradient(135deg, #1a1a2e, #16213e);
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   position: relative;
-//   overflow: hidden;
-// `
-
-// export const CodeSymbols = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: 0.5rem;
-//   font-size: 1.5rem;
-//   font-weight: 700;
-//   color: #64ffda;
-
-//   span {
-//     animation: ${pulse} 2s ease-in-out infinite;
-//     animation-delay: calc(var(--i) * 0.2s);
-//   }
-
-//   span:nth-child(1) {
-//     --i: 0;
-//   }
-//   span:nth-child(2) {
-//     --i: 1;
-//   }
-//   span:nth-child(3) {
-//     --i: 2;
-//   }
-//   span:nth-child(4) {
-//     --i: 3;
-//   }
-//   span:nth-child(5) {
-//     --i: 4;
-//   }
-// `
 
 export const FloatingElements = styled.div`
   position: absolute;

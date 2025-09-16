@@ -25,7 +25,7 @@ export const theme = {
       height: '60px',
     },
     wrapper: {
-      maxWidth: '1000px',
+      maxWidth: '1100px',
     },
   },
   breakpoints: {

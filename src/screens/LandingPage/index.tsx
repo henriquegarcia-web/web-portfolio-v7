@@ -24,7 +24,7 @@ const LandingPage: React.FC = () => {
     <S.LandingPage>
       <Navigation activeSection={activeSection} onMenuItemClick={handleMenuItemClick} />
       <HeroSection data={USER_DATA.personal} />
-      <AboutSection data={USER_DATA.personal} />
+      <AboutSection data={USER_DATA} />
       <SkillsSection data={USER_DATA.skills} />
       <ProjectsSection data={USER_DATA.projects} />
       <ExperienceSection data={USER_DATA.experience} />

@@ -10,6 +10,7 @@ import {
   FaLinkedinIn,
   FaBehance,
 } from 'react-icons/fa'
+import { IoDownloadOutline } from 'react-icons/io5'
 
 export interface IButtonProps {
   children?: React.ReactNode
@@ -25,6 +26,7 @@ export interface IButtonProps {
     | 'github'
     | 'linkedin'
     | 'behance'
+    | 'download'
     | 'none'
   disabled?: boolean
   className?: string
@@ -52,6 +54,7 @@ const Button: React.FC<IButtonProps> = ({
       github: FaGithub,
       linkedin: FaLinkedinIn,
       behance: FaBehance,
+      download: IoDownloadOutline,
       arrow: FaExternalLinkAlt,
     }
 
