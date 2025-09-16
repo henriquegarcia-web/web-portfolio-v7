@@ -56,7 +56,7 @@ export const SkillCard = styled.div<{ color: string }>`
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
 
@@ -105,7 +105,7 @@ export const SkillItem = styled.div`
   border-radius: 10px;
   padding: 0.8rem 1rem;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
   &:hover {

@@ -21,7 +21,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
   const socialLinks = [
     { name: 'GitHub', url: data.socialLinks?.github, icon: 'github' },
     { name: 'LinkedIn', url: data.socialLinks?.linkedin, icon: 'linkedin' },
-    { name: 'Behance', url: data.socialLinks?.twitter, icon: 'behance' },
+    { name: 'Behance', url: data.socialLinks?.behance, icon: 'behance' },
   ]
 
   return (

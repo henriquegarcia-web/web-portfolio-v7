@@ -6,15 +6,15 @@ export const InfoCard = styled.div<{ onlyTitle: boolean }>`
   gap: 1.25rem;
   padding: 1.25rem;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.1);
     border-color: rgba(100, 255, 218, 0.3);
   }
 `
@@ -24,8 +24,8 @@ export const CardIcon = styled.div`
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 4px;
 
   font-size: 1.5rem;
@@ -40,8 +40,6 @@ export const CardContent = styled.div`
 `
 
 export const CardTitle = styled.h4`
-  margin: 0;
-
   font-size: 1rem;
   font-weight: 600;
 
@@ -49,8 +47,6 @@ export const CardTitle = styled.h4`
 `
 
 export const CardDescription = styled.p`
-  margin: 0;
-
   font-size: 0.9rem;
   line-height: 1.4;
   text-align: left;

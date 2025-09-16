@@ -95,7 +95,7 @@ export const ExperienceCard = styled.div`
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   width: calc(50% - 2rem);
   position: relative;
 

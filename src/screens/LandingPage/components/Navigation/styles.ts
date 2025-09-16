@@ -28,7 +28,7 @@ export const MenuItem = styled.li<{ isActive?: boolean }>`
   align-items: center;
   padding: 0 ${theme.spacing.md};
   border-radius: 25px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   background-color: ${({ isActive }) =>
     isActive ? 'rgba(100, 255, 218, 0.2)' : 'transparent'};
   border: 1px solid
@@ -41,7 +41,7 @@ export const MenuItem = styled.li<{ isActive?: boolean }>`
 
   a {
     position: relative;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;

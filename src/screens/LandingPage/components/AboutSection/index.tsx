@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as S from './styles'
 
-import { SectionHeader, Button, InfoCard } from '@/components'
+import { SectionHeader, Button, InfoCard, BulletList } from '@/components'
 import { IPortfolioData } from '@/utils/types'
 
 interface AboutSectionProps {
@@ -28,7 +28,11 @@ const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
             <InfoCard
               icon="🎓"
               title="Educação"
-              description={`${education[0]?.institution} - ${education[0]?.degree}`}
+              description={
+                <BulletList
+                  items={education.map((edu) => `${edu.institution} - ${edu.degree}`)}
+                />
+              }
             />
 
             <InfoCard

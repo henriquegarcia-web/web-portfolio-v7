@@ -5,7 +5,7 @@ import * as S from './styles'
 interface InfoCardProps {
   icon: string
   title: string
-  description: string
+  description: React.ReactNode
   className?: string
 }
 

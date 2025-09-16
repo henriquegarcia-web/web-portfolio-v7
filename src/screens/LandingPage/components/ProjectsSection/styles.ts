@@ -56,7 +56,7 @@ export const ProjectCard = styled.div<{ color: string }>`
   padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   overflow: hidden;
   position: relative;
 
@@ -233,7 +233,7 @@ export const ProjectLinks = styled.div`
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 
     &.live-link {
       background: linear-gradient(135deg, #64ffda, #ff6b6b);

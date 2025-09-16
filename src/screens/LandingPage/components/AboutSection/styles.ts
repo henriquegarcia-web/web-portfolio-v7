@@ -2,18 +2,20 @@ import styled from 'styled-components'
 import { theme } from '@/utils/constants'
 
 export const AboutSection = styled.section`
-  padding: 6rem 2rem;
-  max-width: ${theme.sizes.wrapper.maxWidth};
-  margin: 0 auto;
   position: relative;
-  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
 `
 
 export const Content = styled.div`
   display: grid;
   grid-template-columns: 3fr 2fr; /* 60% e 40% */
-  gap: 4rem;
-  align-items: start;
+  gap: 3rem;
+  max-width: ${theme.sizes.wrapper.maxWidth};
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;

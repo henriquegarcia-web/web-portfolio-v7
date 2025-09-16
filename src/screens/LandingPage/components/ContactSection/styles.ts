@@ -83,7 +83,7 @@ export const CTAButton = styled.a`
   border-radius: 50px;
   font-weight: 700;
   font-size: 1.1rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
 
   &:hover {
@@ -92,7 +92,7 @@ export const CTAButton = styled.a`
   }
 
   svg {
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
   }
 
   &:hover svg {
@@ -134,7 +134,7 @@ export const ContactItem = styled.div`
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
 
     &:hover {
@@ -199,7 +199,7 @@ export const SocialLinks = styled.div`
       border-radius: 50%;
       color: #ffffff;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
 

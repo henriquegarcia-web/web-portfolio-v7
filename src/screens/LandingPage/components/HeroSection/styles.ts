@@ -217,25 +217,25 @@ export const Element = styled.div`
 
   &.element-1 {
     top: 10%;
-    right: -10%;
+    right: 2%;
     animation-delay: 0s;
   }
 
   &.element-2 {
     top: 30%;
-    left: -15%;
+    left: 2%;
     animation-delay: 1s;
   }
 
   &.element-3 {
     bottom: 30%;
-    right: -10%;
+    right: 2%;
     animation-delay: 2s;
   }
 
   &.element-4 {
     bottom: 10%;
-    left: -15%;
+    left: 2%;
     animation-delay: 3s;
   }
 `
