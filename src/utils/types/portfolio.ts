@@ -70,8 +70,8 @@ export interface IProject {
   id: string
   title: string
   description: string
-  longDescription?: string
   image?: string
+  images?: string[]
   technologies: string[]
   features: string[]
   liveUrl?: string

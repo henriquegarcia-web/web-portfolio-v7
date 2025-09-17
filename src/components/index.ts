@@ -3,6 +3,9 @@ export { default as Button } from './Button'
 export { default as CopyButton } from './CopyButton'
 export { default as SectionHeader } from './SectionHeader'
 export { default as InfoCard } from './InfoCard'
+export { default as Tag } from './Tag'
+export { default as ImageCarousel } from './ImageCarousel'
+export { default as ProjectCard } from './ProjectCard'
 export {
   default as BulletList,
   type BulletItem,

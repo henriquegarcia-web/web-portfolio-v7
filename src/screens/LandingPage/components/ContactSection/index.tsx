@@ -28,7 +28,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
   const socialLinks = [
     { name: 'GitHub', url: data.socialLinks?.github, icon: 'github' },
     { name: 'LinkedIn', url: data.socialLinks?.linkedin, icon: 'linkedin' },
-    { name: 'Twitter', url: data.socialLinks?.twitter, icon: 'twitter' },
+    { name: 'Behance', url: data.socialLinks?.behance, icon: 'behance' },
   ]
 
   return (

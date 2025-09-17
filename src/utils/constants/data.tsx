@@ -313,10 +313,8 @@ export const USER_DATA: IPortfolioData = {
   projects: [
     {
       id: 'ecommerce-platform',
-      title: 'Plataforma E-commerce White-label',
+      title: 'Plataforma E-commerce',
       description: 'Sistema completo de e-commerce com mais de 1.000 lojas ativas',
-      longDescription:
-        'Plataforma robusta de e-commerce white-label desenvolvida para a Moovin, com foco em performance e customização. Inclui sistema de temas, componentes reutilizáveis e otimizações de SEO.',
       technologies: ['React', 'TypeScript', 'Styled Components', 'Node.js', 'PostgreSQL'],
       features: [
         'Sistema de temas customizáveis',
@@ -324,6 +322,11 @@ export const USER_DATA: IPortfolioData = {
         'Integração com gateways de pagamento',
         'SEO otimizado',
         'Design system padronizado',
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
       ],
       status: 'completed',
       featured: true,
@@ -334,8 +337,6 @@ export const USER_DATA: IPortfolioData = {
       id: 'admin-dashboard',
       title: 'Dashboard Administrativo',
       description: 'Sistema de gestão com mais de 10 mil acessos mensais',
-      longDescription:
-        'Dashboard completo desenvolvido como freelancer, incluindo autenticação, gestão de usuários, relatórios em tempo real e integração com APIs externas.',
       technologies: [
         'Next.js',
         'TypeScript',
@@ -351,6 +352,11 @@ export const USER_DATA: IPortfolioData = {
         'Integração com Stripe',
         'Interface responsiva',
       ],
+      images: [
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+      ],
       status: 'completed',
       featured: true,
     },
@@ -359,8 +365,6 @@ export const USER_DATA: IPortfolioData = {
       title: 'Aplicativo Mobile React Native',
       description:
         'App mobile com funcionalidades avançadas e sincronização em tempo real',
-      longDescription:
-        'Aplicativo mobile desenvolvido com React Native, incluindo funcionalidades offline, sincronização em tempo real e integração com APIs REST.',
       technologies: ['React Native', 'TypeScript', 'Redux', 'Firebase', 'WebSockets'],
       features: [
         'Funcionalidades offline',
@@ -368,6 +372,11 @@ export const USER_DATA: IPortfolioData = {
         'Push notifications',
         'Integração com APIs REST',
         'Interface nativa',
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop',
       ],
       status: 'completed',
       featured: true,
