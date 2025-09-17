@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 interface TagProps {
-  variant: 'primary' | 'secondary'
+  color: string
   size: 'small' | 'medium' | 'large'
 }
 
@@ -11,29 +11,9 @@ export const Tag = styled.span<TagProps>`
   border-radius: 15px;
   font-weight: 500;
   transition: all 0.2s ease;
-
-  ${({ variant }) => {
-    switch (variant) {
-      case 'primary':
-        return css`
-          background: rgba(100, 255, 218, 0.2);
-          color: #64ffda;
-          border: 1px solid rgba(100, 255, 218, 0.3);
-        `
-      case 'secondary':
-        return css`
-          background: rgba(255, 255, 255, 0.1);
-          color: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-        `
-      default:
-        return css`
-          background: rgba(100, 255, 218, 0.2);
-          color: #64ffda;
-          border: 1px solid rgba(100, 255, 218, 0.3);
-        `
-    }
-  }}
+  background: ${({ color }) => `${color}20`};
+  color: ${({ color }) => color};
+  border: 1px solid ${({ color }) => `${color}40`};
 
   ${({ size }) => {
     switch (size) {
@@ -63,5 +43,7 @@ export const Tag = styled.span<TagProps>`
   &:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: ${({ color }) => `${color}30`};
+    border-color: ${({ color }) => `${color}60`};
   }
 `

@@ -11,6 +11,10 @@ export const theme = {
     white: '#ffffff',
     black: '#000000',
     borderPrimary: 'rgba(255, 255, 255, 0.1)',
+    text: {
+      active: '#f8f9fa',
+      unhovered: '#a3a3a3',
+    },
   },
   spacing: {
     xs: '0.25rem',

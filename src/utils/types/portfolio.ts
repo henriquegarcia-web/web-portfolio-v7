@@ -63,7 +63,16 @@ export interface ICertification {
 
 export interface ISkill {
   category: string
-  technologies: string[]
+  technologies: ISkillTechnology[]
+}
+
+export interface ISkillTechnology {
+  name: string
+  iconKey: string
+  level: 'learning' | 'intermediate' | 'advanced'
+  projects: number
+  jobs: number
+  courses: number
 }
 
 export interface IProject {

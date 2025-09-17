@@ -1,34 +1,14 @@
 import React from 'react'
 
+import * as S from './styles'
+import { SectionHeader, SkillCard } from '@/components'
 import { ISkill } from '@/utils/types'
-import {
-  Container,
-  SectionTitle,
-  SkillCard,
-  SkillCategory,
-  SkillGrid,
-  SkillItem,
-  SkillName,
-  SkillsContainer,
-} from './styles'
 
 interface SkillsSectionProps {
   data: ISkill[]
 }
 
 const SkillsSection: React.FC<SkillsSectionProps> = ({ data }) => {
-  const getSkillIcon = (category: string) => {
-    const icons: { [key: string]: string } = {
-      'Front-End': '⚛️',
-      'Back-End': '🔧',
-      'Banco de Dados': '🗄️',
-      'DevOps & Infraestrutura': '☁️',
-      Testes: '🧪',
-      'Ferramentas & Outros': '🛠️',
-    }
-    return icons[category] || '💻'
-  }
-
   const getCategoryColor = (category: string) => {
     const colors: { [key: string]: string } = {
       'Front-End': '#64ffda',
@@ -41,33 +21,68 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ data }) => {
     return colors[category] || '#64ffda'
   }
 
+  const getCategoryIcon = (category: string) => {
+    const icons: { [key: string]: string } = {
+      'Front-End': '⚛️',
+      'Back-End': '🔧',
+      'Banco de Dados': '🗄️',
+      'DevOps & Infraestrutura': '☁️',
+      Testes: '🧪',
+      'Ferramentas & Outros': '🛠️',
+    }
+    return icons[category] || '💻'
+  }
+
   return (
-    <Container id="skills">
-      <SectionTitle>
-        <span>Skills & Expertise</span>
-        <div className="underline" />
-        <p>Technologies I've mastered and tools I use to bring ideas to life</p>
-      </SectionTitle>
+    <S.SkillsSection id="skills">
+      <SectionHeader
+        mainTitle="Skills"
+        backgroundText="Skills & Expertise"
+        subtitle="Tecnologias que domino e ferramentas que uso para dar vida às ideias"
+      />
 
-      <SkillsContainer>
-        {data.map((skill, index) => (
-          <SkillCard key={index} color={getCategoryColor(skill.category)}>
-            <SkillCategory>
-              <span className="icon">{getSkillIcon(skill.category)}</span>
-              <span className="name">{skill.category}</span>
-            </SkillCategory>
+      <S.Content>
+        <S.LeftColumn>
+          <S.SkillsGrid>
+            {data.slice(0, 3).map((skill, index) => (
+              <S.SkillCategoryCard key={index}>
+                <S.CategoryHeader>
+                  {/* <S.CategoryIcon color={getCategoryColor(skill.category)}>
+                    {getCategoryIcon(skill.category)}
+                  </S.CategoryIcon> */}
+                  <S.CategoryTitle>{skill.category}</S.CategoryTitle>
+                </S.CategoryHeader>
+                <S.TechnologiesGrid>
+                  {skill.technologies.slice(0, 4).map((tech, techIndex) => (
+                    <SkillCard key={techIndex} technology={tech} />
+                  ))}
+                </S.TechnologiesGrid>
+              </S.SkillCategoryCard>
+            ))}
+          </S.SkillsGrid>
+        </S.LeftColumn>
 
-            <SkillGrid>
-              {skill.technologies.map((tech, techIndex) => (
-                <SkillItem key={techIndex}>
-                  <SkillName>{tech}</SkillName>
-                </SkillItem>
-              ))}
-            </SkillGrid>
-          </SkillCard>
-        ))}
-      </SkillsContainer>
-    </Container>
+        <S.RightColumn>
+          <S.ToolsGrid>
+            {data.slice(3).map((skill, index) => (
+              <S.SkillCategoryCard key={index}>
+                <S.CategoryHeader>
+                  {/* <S.CategoryIcon color={getCategoryColor(skill.category)}>
+                    {getCategoryIcon(skill.category)}
+                  </S.CategoryIcon> */}
+                  <S.CategoryTitle>{skill.category}</S.CategoryTitle>
+                </S.CategoryHeader>
+                <S.TechnologiesGrid>
+                  {skill.technologies.slice(0, 4).map((tech, techIndex) => (
+                    <SkillCard key={techIndex} technology={tech} />
+                  ))}
+                </S.TechnologiesGrid>
+              </S.SkillCategoryCard>
+            ))}
+          </S.ToolsGrid>
+        </S.RightColumn>
+      </S.Content>
+    </S.SkillsSection>
   )
 }
 

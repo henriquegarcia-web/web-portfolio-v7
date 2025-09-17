@@ -14,7 +14,7 @@ export const AboutSection = styled.section`
 export const Content = styled.div`
   display: grid;
   grid-template-columns: 3fr 2fr; /* 60% e 40% */
-  gap: 3rem;
+  gap: 2rem;
   max-width: ${theme.sizes.wrapper.maxWidth};
 
   @media (max-width: 768px) {

@@ -40,7 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) => {
 
         <S.TechnologiesContainer>
           {project.technologies.map((tech, index) => (
-            <Tag key={index} variant="primary" size="small">
+            <Tag key={index} color="#64ffda" size="small">
               {tech}
             </Tag>
           ))}

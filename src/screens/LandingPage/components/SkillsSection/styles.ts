@@ -1,64 +1,69 @@
 import styled from 'styled-components'
+import { theme } from '@/utils/constants'
 
-export const Container = styled.section`
-  padding: 6rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+export const SkillsSection = styled.section`
   position: relative;
-  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: fit-content;
+  overflow: hidden;
 `
 
-export const SectionTitle = styled.div`
-  text-align: center;
-  margin-bottom: 4rem;
-
-  span {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #ffffff;
-    display: block;
-    margin-bottom: 1rem;
-
-    @media (max-width: 768px) {
-      font-size: 2rem;
-    }
-  }
-
-  .underline {
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(135deg, #64ffda, #ff6b6b);
-    border-radius: 2px;
-    margin: 0 auto 1rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-    color: #a0a0a0;
-    margin: 0;
-  }
-`
-
-export const SkillsContainer = styled.div`
+export const Content = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: 1fr 1fr; /* 50% e 50% */
   gap: 2rem;
+  max-width: ${theme.sizes.wrapper.maxWidth};
+  width: 100%;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 `
 
-export const SkillCard = styled.div<{ color: string }>`
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  transition: all 0.2s ease;
+// Left Column Styles
+export const LeftColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`
+
+export const SkillsGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`
+
+// Right Column Styles
+export const RightColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`
+
+export const ToolsGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`
+
+export const SkillCategoryCard = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
   overflow: hidden;
+
+  backdrop-filter: blur(10px);
+  /* background: rgba(22, 22, 22, 0.5); */
+  border: 1px solid #2f2f2f;
 
   &::before {
     content: '';
@@ -66,59 +71,68 @@ export const SkillCard = styled.div<{ color: string }>`
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 3px;
     background: ${({ color }) => color};
   }
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border-color: ${({ color }) => color}40;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   }
 `
 
-export const SkillCategory = styled.div`
+export const CategoryHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.5rem;
-
-  .icon {
-    font-size: 2rem;
-  }
-
-  .name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #ffffff;
-  }
 `
 
-export const SkillGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 0.8rem;
-`
+export const CategoryIcon = styled.span<{ color: string }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
 
-export const SkillItem = styled.div`
+  font-size: 1.125rem;
+
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 0.8rem 1rem;
-  text-align: center;
-  transition: all 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-  }
+  border: 1px solid ${({ color }) => color};
 `
 
-export const SkillName = styled.span`
-  font-size: 0.9rem;
-  font-weight: 500;
+export const CategoryTitle = styled.h3`
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin: 0;
+`
+
+export const TechnologiesGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`
+
+// ====================================== CONTENT SECTION
+
+export const ContentSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+`
+
+export const SectionTitle = styled.h3`
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #64ffda;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+`
+
+export const SectionContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `

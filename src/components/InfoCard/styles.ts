@@ -8,14 +8,14 @@ export const InfoCard = styled.div<{ onlyTitle: boolean }>`
   border-radius: 8px;
   transition: all 0.2s ease;
 
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #161616;
+  border: 1px solid #2f2f2f;
   backdrop-filter: blur(10px);
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.1);
-    border-color: rgba(100, 255, 218, 0.3);
+    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.05);
+    border-color: rgba(100, 255, 218, 0.2);
   }
 `
 

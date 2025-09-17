@@ -4,19 +4,19 @@ import * as S from './styles'
 
 interface TagProps {
   children: React.ReactNode
-  variant?: 'primary' | 'secondary'
+  color?: string
   size?: 'small' | 'medium' | 'large'
   className?: string
 }
 
 const Tag: React.FC<TagProps> = ({
   children,
-  variant = 'primary',
+  color = '#64ffda',
   size = 'medium',
   className,
 }) => {
   return (
-    <S.Tag variant={variant} size={size} className={className}>
+    <S.Tag color={color} size={size} className={className}>
       {children}
     </S.Tag>
   )
