@@ -2,8 +2,15 @@ import React from 'react'
 
 import * as S from './styles'
 
+export type BulletItemColor = 'yellow' | 'green' | 'red'
+
+export interface BulletItem {
+  text: string
+  color: BulletItemColor
+}
+
 interface BulletListProps {
-  items: string[]
+  items: BulletItem[]
   className?: string
 }
 
@@ -12,8 +19,8 @@ const BulletList: React.FC<BulletListProps> = ({ items, className }) => {
     <S.BulletList className={className}>
       {items.map((item, index) => (
         <S.BulletItem key={index}>
-          <S.BulletPoint />
-          <S.BulletText>{item}</S.BulletText>
+          <S.BulletPoint color={item.color} />
+          <S.BulletText>{item.text}</S.BulletText>
         </S.BulletItem>
       ))}
     </S.BulletList>

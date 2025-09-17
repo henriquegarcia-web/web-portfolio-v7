@@ -11,7 +11,7 @@ export const USER_DATA: IPortfolioData = {
     phone: '+55 84 99814-7860',
     location: 'Natal, RN',
     summary:
-      'Sou um profissional proativo e movido por desafios, com mais de cinco anos dedicados à construção de softwares. Tenho uma abordagem orientada à solução e o hábito de me aprofundar em novas tecnologias de forma autodidata. Em meu tempo livre, gosto de aplicar minhas habilidades em projetos variados, que vão desde a construção de aplicativos complexos até o desenvolvimento de jogos.',
+      'Sou um profissional proativo e movido por desafios, com mais de cinco anos dedicados à construção de softwares. Tenho uma abordagem orientada à solução e o hábito de me aprofundar em novas tecnologias de forma autodidata. Em meu tempo livre, gosto de aplicar minhas habilidades em projetos variados, que vão desde a construção de sistemas e aplicativos complexos até o desenvolvimento de jogos.',
     heroSummary:
       'Crio soluções digitais que resolvem problemas reais e geram valor, da concepção à entrega final.',
     socialLinks: {
@@ -160,6 +160,7 @@ export const USER_DATA: IPortfolioData = {
       location: 'João Pessoa, RN',
       startDate: '2019-03',
       endDate: '2022-10',
+      current: false,
     },
     {
       id: 'senac-2018',
@@ -168,6 +169,7 @@ export const USER_DATA: IPortfolioData = {
       location: 'Porto Alegre, RS',
       startDate: '2018-01',
       endDate: '2019-12',
+      current: false,
       description:
         'Curso com mais de 1.200 horas focado no desenvolvimento completo de jogos 2D e 3D.',
       projects: [
@@ -175,6 +177,15 @@ export const USER_DATA: IPortfolioData = {
         'Jogo final autoral com sistema de fases, interface e mecânicas próprias',
         'Estudos em fundamentos de lógica, física aplicada, IA básica, narrativa interativa e organização de assets',
       ],
+    },
+    {
+      id: 'jogos-2025',
+      degree: 'Bacharelado EAD em Jogos Digitais',
+      institution: 'UNP',
+      location: 'Natal, RN',
+      startDate: '2025-09',
+      endDate: '2029-10',
+      current: true,
     },
   ],
 

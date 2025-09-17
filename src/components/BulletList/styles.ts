@@ -6,6 +6,7 @@ export const BulletList = styled.div`
   gap: 0.75rem;
   position: relative;
   margin: 0.5rem 0 0 0;
+  width: 100%;
 `
 
 export const BulletItem = styled.div`
@@ -17,7 +18,7 @@ export const BulletItem = styled.div`
   &:not(:last-child)::after {
     content: '';
     position: absolute;
-    left: 6px;
+    left: 7px;
     top: 16px;
     width: 2px;
     height: calc(100% + 0.75rem);
@@ -29,12 +30,33 @@ export const BulletItem = styled.div`
   }
 `
 
-export const BulletPoint = styled.div`
+const getColorVariants = (color: 'yellow' | 'green' | 'red') => {
+  const colors = {
+    yellow: {
+      background: 'rgba(255, 193, 7, 0.2)',
+      border: 'rgba(255, 193, 7, 0.6)',
+      dot: 'rgba(255, 193, 7, 0.8)',
+    },
+    green: {
+      background: 'rgba(40, 167, 69, 0.2)',
+      border: 'rgba(40, 167, 69, 0.6)',
+      dot: 'rgba(40, 167, 69, 0.8)',
+    },
+    red: {
+      background: 'rgba(220, 53, 69, 0.2)',
+      border: 'rgba(220, 53, 69, 0.6)',
+      dot: 'rgba(220, 53, 69, 0.8)',
+    },
+  }
+  return colors[color]
+}
+
+export const BulletPoint = styled.div<{ color: 'yellow' | 'green' | 'red' }>`
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: rgba(100, 255, 218, 0.2);
-  border: 2px solid rgba(100, 255, 218, 0.6);
+  background: ${({ color }) => getColorVariants(color).background};
+  border: 2px solid ${({ color }) => getColorVariants(color).border};
   flex-shrink: 0;
   margin-top: 2px;
   position: relative;
@@ -49,7 +71,7 @@ export const BulletPoint = styled.div`
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background: rgba(100, 255, 218, 0.8);
+    background: ${({ color }) => getColorVariants(color).dot};
   }
 `
 
@@ -59,6 +81,7 @@ export const BulletText = styled.span`
   color: #a0a0a0;
   flex: 1;
   position: relative;
+  margin-bottom: -2px;
 
   &::before {
     content: '';

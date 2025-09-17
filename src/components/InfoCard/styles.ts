@@ -37,6 +37,7 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  flex: 1;
 `
 
 export const CardTitle = styled.h4`

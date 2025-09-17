@@ -2,7 +2,13 @@ import React from 'react'
 
 import * as S from './styles'
 
-import { SectionHeader, Button, InfoCard, BulletList } from '@/components'
+import {
+  SectionHeader,
+  Button,
+  InfoCard,
+  BulletList,
+  type BulletItem,
+} from '@/components'
 import { IPortfolioData } from '@/utils/types'
 
 interface AboutSectionProps {
@@ -30,7 +36,12 @@ const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
               title="Educação"
               description={
                 <BulletList
-                  items={education.map((edu) => `${edu.institution} - ${edu.degree}`)}
+                  items={education.map(
+                    (edu): BulletItem => ({
+                      text: `${edu.institution} - ${edu.degree}`,
+                      color: edu.current ? 'yellow' : 'green',
+                    }),
+                  )}
                 />
               }
             />

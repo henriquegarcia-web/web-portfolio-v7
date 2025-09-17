@@ -56,7 +56,7 @@ export const HeroSection = styled.section`
 
 export const Content = styled.div`
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -216,26 +216,38 @@ export const Element = styled.div`
   animation: ${float} 4s ease-in-out infinite;
 
   &.element-1 {
-    top: 10%;
-    right: 2%;
+    top: -10%;
+    right: 8%;
     animation-delay: 0s;
   }
 
   &.element-2 {
-    top: 30%;
-    left: 2%;
+    top: -6%;
+    left: 5%;
     animation-delay: 1s;
   }
 
   &.element-3 {
-    bottom: 30%;
-    right: 2%;
+    bottom: 5%;
+    right: 0;
     animation-delay: 2s;
   }
 
   &.element-4 {
-    bottom: 10%;
-    left: 2%;
+    bottom: -6%;
+    left: 8%;
     animation-delay: 3s;
+  }
+
+  &.element-5 {
+    top: 40%;
+    left: -8%;
+    animation-delay: 1s;
+  }
+
+  &.element-6 {
+    top: 40%;
+    right: -6%;
+    animation-delay: 1s;
   }
 `

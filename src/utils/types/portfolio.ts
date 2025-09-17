@@ -48,6 +48,7 @@ export interface IEducation {
   endDate: string
   description?: string
   projects?: string[]
+  current?: boolean
 }
 
 export interface ICertification {

@@ -55,12 +55,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
             )
           })}
         </S.SocialLinks>
-
         <S.FloatingElements>
           <S.Element className="element-1">React</S.Element>
           <S.Element className="element-2">TypeScript</S.Element>
-          <S.Element className="element-3">Next.js</S.Element>
-          <S.Element className="element-4">Node.js</S.Element>
+          <S.Element className="element-3">AWS</S.Element>
+          <S.Element className="element-4">Next.js</S.Element>
+          <S.Element className="element-5">Node.js</S.Element>
+          <S.Element className="element-6">Docker</S.Element>
         </S.FloatingElements>
       </S.Content>
     </S.HeroSection>
