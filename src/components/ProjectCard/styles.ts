@@ -15,9 +15,9 @@ export const ProjectCard = styled.div`
   backdrop-filter: blur(10px);
 
   &:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border-color: rgba(100, 255, 218, 0.15);
+    border-color: rgba(100, 255, 218, 0.2);
   }
 `
 

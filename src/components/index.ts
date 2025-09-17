@@ -8,6 +8,7 @@ export { default as ImageCarousel } from './ImageCarousel'
 export { default as ProjectCard } from './ProjectCard'
 export { default as SkillCard } from './SkillCard'
 export { default as TechIcon } from './TechIcon'
+export { default as ExperienceCard } from './ExperienceCard'
 export {
   default as BulletList,
   type BulletItem,
