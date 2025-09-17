@@ -2,6 +2,7 @@ import React from 'react'
 
 import * as S from './styles'
 
+import { ProgressBar } from '@/components'
 import { useScrollSpy } from '@/hooks'
 import { USER_DATA } from '@/utils/constants/data'
 
@@ -22,6 +23,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <S.LandingPage>
+      <ProgressBar />
       <Navigation activeSection={activeSection} onMenuItemClick={handleMenuItemClick} />
       <HeroSection data={USER_DATA.personal} />
       <AboutSection data={USER_DATA} />

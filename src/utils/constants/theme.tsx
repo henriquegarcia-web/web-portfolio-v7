@@ -30,6 +30,7 @@ export const theme = {
     },
     wrapper: {
       maxWidth: '1100px',
+      contactSection: '500px',
     },
   },
   breakpoints: {

@@ -14,3 +14,4 @@ export {
   type BulletItem,
   type BulletItemColor,
 } from './BulletList'
+export { default as ProgressBar } from './ProgressBar'

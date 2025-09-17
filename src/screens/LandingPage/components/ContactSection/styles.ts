@@ -1,213 +1,139 @@
 import styled from 'styled-components'
+import { theme } from '@/utils/constants'
 
-export const Container = styled.section`
-  padding: 6rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+export const ContactSection = styled.section`
   position: relative;
-  z-index: 2;
-`
-
-export const SectionTitle = styled.div`
-  text-align: center;
-  margin-bottom: 4rem;
-
-  span {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #ffffff;
-    display: block;
-    margin-bottom: 1rem;
-
-    @media (max-width: 768px) {
-      font-size: 2rem;
-    }
-  }
-
-  .underline {
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(135deg, #64ffda, #ff6b6b);
-    border-radius: 2px;
-    margin: 0 auto 1rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-    color: #a0a0a0;
-    margin: 0;
-  }
-`
-
-export const CTAContainer = styled.div`
-  text-align: center;
-  margin-bottom: 4rem;
-  padding: 3rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-`
-
-export const CTAText = styled.div`
-  margin-bottom: 2rem;
-
-  h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 1rem;
-
-    @media (max-width: 768px) {
-      font-size: 1.5rem;
-    }
-  }
-
-  p {
-    font-size: 1.1rem;
-    color: #a0a0a0;
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-`
-
-export const CTAButton = styled.a`
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 0.8rem;
-  padding: 1.2rem 2.5rem;
-  background: linear-gradient(135deg, #64ffda, #ff6b6b);
-  color: #000000;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  transition: all 0.2s ease;
-  box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 40px rgba(100, 255, 218, 0.4);
-  }
-
-  svg {
-    transition: transform 0.2s ease;
-  }
-
-  &:hover svg {
-    transform: translateX(5px);
-  }
+  min-height: 100vh;
+  overflow: hidden;
 `
 
 export const ContactCard = styled.div`
+  position: relative;
+  min-width: ${theme.sizes.wrapper.contactSection};
+  height: fit-content;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 3rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  max-width: 800px;
-  margin: 0 auto;
-`
 
-export const ContactTitle = styled.h3`
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 2rem;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `
 
 export const ContactInfo = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 3rem;
 `
 
-export const ContactItem = styled.div`
-  a {
+export const ContactItem = styled.div<{ color: string; isCopied: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: 1px solid
+    ${({ isCopied }) => (isCopied ? '#64ffda' : 'rgba(255, 255, 255, 0.05)')};
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .icon-container {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
 
-    &:hover {
-      background: rgba(100, 255, 218, 0.1);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(100, 255, 218, 0.2);
+    background: ${({ color }) => `${color}20`};
+    border: 2px solid ${({ color }) => `${color}40`};
+
+    svg {
+      font-size: 1rem;
     }
+  }
 
-    .icon {
-      font-size: 1.5rem;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(100, 255, 218, 0.1);
-      border-radius: 50%;
-    }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
 
-    .content {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-
-      .label {
-        font-size: 0.9rem;
-        color: #a0a0a0;
-        font-weight: 500;
-      }
-
-      .value {
-        font-size: 1rem;
-        color: #ffffff;
-        font-weight: 600;
-      }
+    .label {
+      font-size: 0.75rem;
+      color: #a0a0a0;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
   }
 `
 
-export const SocialLinks = styled.div`
-  text-align: center;
+export const ContactValue = styled.span<{ isCopied?: boolean }>`
+  font-size: 1rem;
+  color: ${({ isCopied }) => (isCopied ? '#64ffda' : '#ffffff')};
+  font-weight: 600;
+  transition: color 0.3s ease;
+`
 
-  h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 1.5rem;
+export const CopyIcon = styled.div<{ isCopied?: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  color: ${({ isCopied }) => (isCopied ? '#64ffda' : '#a0a0a0')};
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid
+    ${({ isCopied }) => (isCopied ? '#64ffda' : 'rgba(255, 255, 255, 0.1)')};
+
+  svg {
+    font-size: 1rem;
   }
 
-  .links {
-    display: flex;
-    justify-content: center;
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #64ffda;
+  }
+`
+
+export const SocialButtonsContainer = styled.div`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1.5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
     gap: 1rem;
-
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      color: #ffffff;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-
-      &:hover {
-        background: rgba(100, 255, 218, 0.2);
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(100, 255, 218, 0.3);
-      }
-    }
   }
 `
