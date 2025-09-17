@@ -3,6 +3,10 @@ import { theme } from '@/utils/constants/theme'
 
 export const SkillCard = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 1em;
   border-radius: 10px;
   transition: all 0.3s ease;
@@ -31,7 +35,6 @@ export const SkillHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1rem;
 `
 
 export const SkillIcon = styled.div`

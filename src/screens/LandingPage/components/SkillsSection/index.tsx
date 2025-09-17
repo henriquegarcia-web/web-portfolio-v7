@@ -1,36 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import * as S from './styles'
 import { SectionHeader, SkillCard } from '@/components'
 import { ISkill } from '@/utils/types'
+import { useSmoothScroll } from '@/hooks'
 
 interface SkillsSectionProps {
   data: ISkill[]
 }
 
 const SkillsSection: React.FC<SkillsSectionProps> = ({ data }) => {
-  const getCategoryColor = (category: string) => {
-    const colors: { [key: string]: string } = {
-      'Front-End': '#64ffda',
-      'Back-End': '#ff6b6b',
-      'Banco de Dados': '#ffd93d',
-      'DevOps & Infraestrutura': '#ff9ff3',
-      Testes: '#54a0ff',
-      'Ferramentas & Outros': '#5f27cd',
-    }
-    return colors[category] || '#64ffda'
-  }
+  const [activeFilter, setActiveFilter] = useState<string>('all')
+  const { scrollToElement } = useSmoothScroll({ duration: 10 })
 
-  const getCategoryIcon = (category: string) => {
-    const icons: { [key: string]: string } = {
-      'Front-End': '⚛️',
-      'Back-End': '🔧',
-      'Banco de Dados': '🗄️',
-      'DevOps & Infraestrutura': '☁️',
-      Testes: '🧪',
-      'Ferramentas & Outros': '🛠️',
-    }
-    return icons[category] || '💻'
+  // Filtrar dados baseado no filtro ativo
+  const filteredData =
+    activeFilter === 'all'
+      ? data
+      : data.filter((skill) => skill.category === activeFilter)
+
+  // Função para expandir uma categoria específica
+  const handleExpandCategory = (category: string) => {
+    setActiveFilter(category)
+    // Scroll suave para o topo da seção skills
+    setTimeout(() => {
+      scrollToElement('skills')
+    }, 0)
   }
 
   return (
@@ -41,46 +36,44 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ data }) => {
         subtitle="Tecnologias que domino e ferramentas que uso para dar vida às ideias"
       />
 
-      <S.Content>
-        <S.LeftColumn>
-          <S.SkillsGrid>
-            {data.slice(0, 3).map((skill, index) => (
-              <S.SkillCategoryCard key={index}>
-                <S.CategoryHeader>
-                  {/* <S.CategoryIcon color={getCategoryColor(skill.category)}>
-                    {getCategoryIcon(skill.category)}
-                  </S.CategoryIcon> */}
-                  <S.CategoryTitle>{skill.category}</S.CategoryTitle>
-                </S.CategoryHeader>
-                <S.TechnologiesGrid>
-                  {skill.technologies.slice(0, 4).map((tech, techIndex) => (
-                    <SkillCard key={techIndex} technology={tech} />
-                  ))}
-                </S.TechnologiesGrid>
-              </S.SkillCategoryCard>
-            ))}
-          </S.SkillsGrid>
-        </S.LeftColumn>
+      <S.FilterContainer>
+        <S.FilterButton
+          onClick={() => setActiveFilter('all')}
+          $isActive={activeFilter === 'all'}
+        >
+          Todos
+        </S.FilterButton>
+        {data.map((skill) => (
+          <S.FilterButton
+            key={skill.category}
+            onClick={() => setActiveFilter(skill.category)}
+            $isActive={activeFilter === skill.category}
+          >
+            {skill.category}
+          </S.FilterButton>
+        ))}
+      </S.FilterContainer>
 
-        <S.RightColumn>
-          <S.ToolsGrid>
-            {data.slice(3).map((skill, index) => (
-              <S.SkillCategoryCard key={index}>
-                <S.CategoryHeader>
-                  {/* <S.CategoryIcon color={getCategoryColor(skill.category)}>
-                    {getCategoryIcon(skill.category)}
-                  </S.CategoryIcon> */}
-                  <S.CategoryTitle>{skill.category}</S.CategoryTitle>
-                </S.CategoryHeader>
-                <S.TechnologiesGrid>
-                  {skill.technologies.slice(0, 4).map((tech, techIndex) => (
-                    <SkillCard key={techIndex} technology={tech} />
-                  ))}
-                </S.TechnologiesGrid>
-              </S.SkillCategoryCard>
-            ))}
-          </S.ToolsGrid>
-        </S.RightColumn>
+      <S.Content $isFiltered={activeFilter !== 'all'}>
+        {filteredData.map((skill, index) => (
+          <S.SkillCategoryCard key={index}>
+            <S.CategoryHeader>
+              <S.CategoryTitle>{skill.category}</S.CategoryTitle>
+            </S.CategoryHeader>
+            <S.TechnologiesGrid $isFiltered={activeFilter !== 'all'}>
+              {skill.technologies
+                .slice(0, activeFilter === 'all' ? 3 : skill.technologies.length)
+                .map((tech, techIndex) => (
+                  <SkillCard key={techIndex} technology={tech} />
+                ))}
+            </S.TechnologiesGrid>
+            {activeFilter === 'all' && skill.technologies.length > 3 && (
+              <S.ViewAllLink onClick={() => handleExpandCategory(skill.category)}>
+                Ver todos
+              </S.ViewAllLink>
+            )}
+          </S.SkillCategoryCard>
+        ))}
       </S.Content>
     </S.SkillsSection>
   )
