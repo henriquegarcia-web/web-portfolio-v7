@@ -51,7 +51,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) => {
           ))}
         </S.TechnologiesContainer>
 
-        <S.LinksContainer>
+        {/* <S.LinksContainer>
           {project.liveUrl && (
             <Button href={project.liveUrl} variant="primary" size="small" icon="arrow">
               Live Demo
@@ -67,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) => {
               GitHub
             </Button>
           )}
-        </S.LinksContainer>
+        </S.LinksContainer> */}
       </S.CardContent>
     </S.ProjectCard>
   )

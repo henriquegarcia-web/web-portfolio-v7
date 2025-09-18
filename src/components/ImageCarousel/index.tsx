@@ -27,6 +27,13 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
     return () => clearInterval(timer)
   }, [images.length, interval, isActive])
 
+  // Reset para primeira imagem quando não estiver ativo
+  useEffect(() => {
+    if (!isActive) {
+      setCurrentIndex(0)
+    }
+  }, [isActive])
+
   if (!images || images.length === 0) {
     return null
   }

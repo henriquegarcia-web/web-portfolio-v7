@@ -29,3 +29,12 @@ export const ViewAllContainer = styled.div`
   max-width: ${theme.sizes.wrapper.maxWidth};
   width: 100%;
 `
+
+export const ProjectCardWrapper = styled.div`
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+`

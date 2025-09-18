@@ -58,12 +58,12 @@ export const Dot = styled.button<{ $isActive: boolean }>`
   transition: all 0.2s ease;
 
   ${({ $isActive }) => css`
-    background: ${$isActive ? '#64ffda' : 'rgba(255, 255, 255, 0.3)'};
+    background: ${$isActive ? '#0A0A0F' : 'rgba(0, 0, 0, 0.25)'};
     transform: scale(${$isActive ? 1.2 : 1});
   `}
 
   &:hover {
-    background: #64ffda;
+    background: #0a0a0f;
     transform: scale(1.2);
   }
 `

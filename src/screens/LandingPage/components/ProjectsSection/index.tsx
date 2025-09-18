@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 
 import * as S from './styles'
-import { ProjectCard as ProjectCardComponent, SectionHeader, Button } from '@/components'
+import {
+  ProjectCard as ProjectCardComponent,
+  SectionHeader,
+  Button,
+  ProjectModal,
+} from '@/components'
 import { IProject } from '@/utils/types'
 import { useSmoothScroll } from '@/hooks'
 
@@ -11,6 +16,8 @@ interface ProjectsSectionProps {
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
   const [showAll, setShowAll] = useState(false)
+  const [selectedProject, setSelectedProject] = useState<IProject | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const { scrollToElement } = useSmoothScroll({ duration: 10 })
 
   const displayedProjects = showAll ? data : data.slice(0, 6)
@@ -25,6 +32,16 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
       }, 0)
     }
   }
+
+  const handleProjectClick = (project: IProject) => {
+    setSelectedProject(project)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setSelectedProject(null)
+  }
   return (
     <S.ProjectsSection id="projects">
       <SectionHeader
@@ -35,7 +52,12 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
 
       <S.ProjectsGrid>
         {displayedProjects.map((project) => (
-          <ProjectCardComponent key={project.id} project={project} />
+          <S.ProjectCardWrapper
+            key={project.id}
+            onClick={() => handleProjectClick(project)}
+          >
+            <ProjectCardComponent project={project} />
+          </S.ProjectCardWrapper>
         ))}
       </S.ProjectsGrid>
 
@@ -46,6 +68,12 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
           </Button>
         </S.ViewAllContainer>
       )}
+
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </S.ProjectsSection>
   )
 }

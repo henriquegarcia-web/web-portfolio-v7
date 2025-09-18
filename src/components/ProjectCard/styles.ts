@@ -81,6 +81,11 @@ export const ProjectDescription = styled.p`
   color: ${theme.colors.text.tertiary};
   font-size: 0.9rem;
   line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 export const FeaturesList = styled.ul`

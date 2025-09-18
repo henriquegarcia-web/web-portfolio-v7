@@ -15,3 +15,6 @@ export {
   type BulletItemColor,
 } from './BulletList'
 export { default as ProgressBar } from './ProgressBar'
+export { default as Modal } from './Modal'
+export { default as ProductImageViewer } from './ProductImageViewer'
+export { default as ProjectModal } from './ProjectModal'
