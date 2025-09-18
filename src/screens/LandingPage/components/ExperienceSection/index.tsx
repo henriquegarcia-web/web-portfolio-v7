@@ -4,13 +4,7 @@ import { motion } from 'framer-motion'
 import { IWorkExperience } from '@/utils/types'
 import { SectionHeader, ExperienceCard } from '@/components'
 import { useScrollAnimation, useStaggerAnimation } from '@/hooks'
-import {
-  fadeInUp,
-  fadeInLeft,
-  fadeInRight,
-  staggerContainer,
-  staggerItem,
-} from '@/utils/constants'
+import { fadeInUp, staggerContainer, staggerItem } from '@/utils/constants'
 import * as S from './styles'
 
 interface ExperienceSectionProps {

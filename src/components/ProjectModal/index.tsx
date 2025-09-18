@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 import * as S from './styles'
 
-import { ProductImageViewer, Tag, Button } from '@/components'
+import { ProductImageViewer, Tag } from '@/components'
 import { IProject } from '@/utils/types'
 import {
   modalBackdrop,

@@ -11,9 +11,9 @@ interface UseStaggerAnimationOptions {
 export const useStaggerAnimation = (options: UseStaggerAnimationOptions = {}) => {
   const ref = useRef(null)
   const isInView = useInView(ref, {
-    threshold: options.threshold || 0.1,
+    amount: options.threshold || 0.1,
     once: options.triggerOnce !== false,
-    margin: options.rootMargin || '0px 0px -50px 0px',
+    margin: (options.rootMargin || '0px 0px -50px 0px') as any,
   })
 
   const staggerDelay = options.staggerDelay || 0.1

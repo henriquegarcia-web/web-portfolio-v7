@@ -12,8 +12,6 @@ import { IProject } from '@/utils/types'
 import { useSmoothScroll, useScrollAnimation, useStaggerAnimation } from '@/hooks'
 import {
   fadeInUp,
-  fadeInLeft,
-  fadeInRight,
   staggerContainer,
   staggerItem,
   hoverScale,

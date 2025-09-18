@@ -2,7 +2,7 @@ import { useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
 interface UseParallaxAnimationOptions {
-  offset?: string[]
+  offset?: [string, string]
   clamp?: boolean
 }
 
@@ -10,7 +10,7 @@ export const useParallaxAnimation = (options: UseParallaxAnimationOptions = {}) 
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: options.offset || ['start end', 'end start'],
+    offset: options.offset || (['start end', 'end start'] as any),
   })
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'], {

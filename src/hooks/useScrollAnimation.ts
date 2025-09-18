@@ -10,9 +10,9 @@ interface UseScrollAnimationOptions {
 export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
   const ref = useRef(null)
   const isInView = useInView(ref, {
-    threshold: options.threshold || 0.1,
+    amount: options.threshold || 0.1,
     once: options.triggerOnce !== false,
-    margin: options.rootMargin || '0px 0px -100px 0px',
+    margin: (options.rootMargin || '0px 0px -100px 0px') as any,
   })
 
   return { ref, isInView }
