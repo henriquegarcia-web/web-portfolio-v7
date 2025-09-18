@@ -1,16 +1,8 @@
 import styled from 'styled-components'
 import { theme } from '@/utils/constants'
+import { Section } from '@/utils/styles'
 
-export const SkillsSection = styled.section`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  height: fit-content;
-  overflow: hidden;
-`
+export const SkillsSection = styled(Section)``
 
 export const Content = styled.div<{ $isFiltered?: boolean }>`
   display: grid;

@@ -1,15 +1,8 @@
 import styled from 'styled-components'
 import { theme } from '@/utils/constants'
+import { Section } from '@/utils/styles'
 
-export const ContactSection = styled.section`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
-`
+export const ContactSection = styled(Section)``
 
 export const ContactCard = styled.div`
   position: relative;
@@ -24,8 +17,8 @@ export const ContactCard = styled.div`
   backdrop-filter: blur(10px);
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 
   @media (max-width: 768px) {
@@ -127,13 +120,8 @@ export const SocialButtonsContainer = styled.div`
   right: 0;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: flex-start;
   align-items: center;
   margin-top: 1.5rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 1rem;
-  }
 `

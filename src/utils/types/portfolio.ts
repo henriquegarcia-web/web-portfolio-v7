@@ -6,6 +6,7 @@ export interface IPersonalInfo {
   }
   email: string
   phone: string
+  whatsapp: string
   location: string
   summary: string
   heroSummary: string

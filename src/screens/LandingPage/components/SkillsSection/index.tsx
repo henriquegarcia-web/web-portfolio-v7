@@ -32,7 +32,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ data }) => {
     <S.SkillsSection id="skills">
       <SectionHeader
         mainTitle="Skills"
-        backgroundText="Skills & Expertise"
+        backgroundText="Expertise"
         subtitle="Tecnologias que domino e ferramentas que uso para dar vida às ideias"
       />
 

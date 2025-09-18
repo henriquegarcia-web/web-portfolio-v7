@@ -1,15 +1,8 @@
 import styled from 'styled-components'
 import { theme } from '@/utils/constants'
+import { Section } from '@/utils/styles'
 
-export const AboutSection = styled.section`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
-`
+export const AboutSection = styled(Section)``
 
 export const Content = styled.div`
   display: grid;
@@ -17,7 +10,7 @@ export const Content = styled.div`
   gap: 2rem;
   max-width: ${theme.sizes.wrapper.maxWidth};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
@@ -37,7 +30,11 @@ export const CardsContainer = styled.div`
 `
 
 export const DownloadButton = styled.div`
-  margin-top: 1rem;
+  margin: 0 1rem 0 0;
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    margin: 0 0 1rem 0;
+  }
 `
 
 // Right Column Styles

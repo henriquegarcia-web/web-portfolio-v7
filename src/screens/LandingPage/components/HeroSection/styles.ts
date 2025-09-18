@@ -1,4 +1,5 @@
 import { theme } from '@/utils/constants'
+import { Section } from '@/utils/styles'
 import styled, { keyframes } from 'styled-components'
 
 const float = keyframes`
@@ -45,14 +46,7 @@ const glow = keyframes`
   }
 `
 
-export const HeroSection = styled.section`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
-`
+export const HeroSection = styled(Section)``
 
 export const Content = styled.div`
   position: relative;
@@ -60,15 +54,16 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
+  width: 100%;
   max-width: ${theme.sizes.wrapper.maxWidth};
+  height: fit-content;
 `
 
 export const Greeting = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #64ffda;
   margin-bottom: 0.5rem;
-  font-weight: 400;
+  font-weight: 600;
   text-align: center;
 `
 
@@ -139,16 +134,12 @@ export const Name = styled.h1`
     filter: blur(1px);
     z-index: -1;
   }
-
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
-  }
 `
 
 export const Title = styled.h2`
   margin-bottom: 1.5rem;
 
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 500;
   text-align: center;
 
@@ -182,6 +173,11 @@ export const CTAWrapper = styled.div`
   align-items: center;
   gap: 1rem;
   margin-bottom: 3rem;
+
+  @media (max-width: ${theme.breakpoints.tablet}) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 `
 
 export const SocialLinks = styled.div`
@@ -218,7 +214,7 @@ export const Element = styled.div`
   &.element-1 {
     top: -10%;
     right: 8%;
-    animation-delay: 0s;
+    animation-delay: 3s;
   }
 
   &.element-2 {
@@ -229,25 +225,25 @@ export const Element = styled.div`
 
   &.element-3 {
     bottom: 5%;
-    right: 0;
-    animation-delay: 2s;
+    right: 4%;
+    animation-delay: 1s;
   }
 
   &.element-4 {
     bottom: -6%;
     left: 8%;
-    animation-delay: 3s;
+    animation-delay: 2s;
   }
 
   &.element-5 {
     top: 40%;
-    left: -8%;
-    animation-delay: 1s;
+    left: 0%;
+    animation-delay: 3s;
   }
 
   &.element-6 {
     top: 40%;
-    right: -6%;
-    animation-delay: 1s;
+    right: 0%;
+    animation-delay: 2s;
   }
 `

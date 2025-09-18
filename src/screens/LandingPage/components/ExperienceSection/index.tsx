@@ -11,19 +11,21 @@ interface ExperienceSectionProps {
 const ExperienceSection: React.FC<ExperienceSectionProps> = ({ data }) => {
   return (
     <S.ExperienceSection id="experience">
-      <SectionHeader
-        mainTitle="Experiência"
-        backgroundText="Profissional"
-        subtitle="Minha jornada profissional e marcos de carreira"
-      />
+      <S.Content>
+        <SectionHeader
+          mainTitle="Experiência"
+          backgroundText="Profissional"
+          subtitle="Minha jornada profissional e marcos de carreira"
+        />
 
-      <S.Timeline>
-        {data.map((experience, index) => (
-          <S.TimelineItem key={experience.id} isEven={index % 2 === 0}>
-            <ExperienceCard experience={experience} />
-          </S.TimelineItem>
-        ))}
-      </S.Timeline>
+        <S.Timeline>
+          {data.map((experience, index) => (
+            <S.TimelineItem key={experience.id} isEven={index % 2 === 0}>
+              <ExperienceCard experience={experience} />
+            </S.TimelineItem>
+          ))}
+        </S.Timeline>
+      </S.Content>
     </S.ExperienceSection>
   )
 }

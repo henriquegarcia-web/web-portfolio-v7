@@ -77,7 +77,7 @@ const Button: React.FC<IButtonProps> = ({
 
     if (href) {
       return (
-        <S.ButtonIcon as="a" href={href} {...iconProps}>
+        <S.ButtonIcon as="a" href={href} target="_blank" {...iconProps}>
           {renderIcon()}
         </S.ButtonIcon>
       )
@@ -102,7 +102,7 @@ const Button: React.FC<IButtonProps> = ({
 
     if (href) {
       return (
-        <S.Button as="a" href={href} {...buttonProps}>
+        <S.Button as="a" href={href} target="_blank" {...buttonProps}>
           <S.ButtonText>{children}</S.ButtonText>
         </S.Button>
       )
@@ -128,7 +128,7 @@ const Button: React.FC<IButtonProps> = ({
 
     if (href) {
       return (
-        <S.Button as="a" href={href} {...buttonProps}>
+        <S.Button as="a" href={href} target="_blank" {...buttonProps}>
           <S.ButtonText>{children}</S.ButtonText>
           <S.ButtonIconInternal variant={variant} size={size}>
             {renderIcon()}

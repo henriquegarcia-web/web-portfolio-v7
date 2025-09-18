@@ -1,17 +1,15 @@
 import styled from 'styled-components'
 import { theme } from '@/utils/constants'
+import { Section } from '@/utils/styles'
 
-export const ExperienceSection = styled.section`
-  position: relative;
+export const ExperienceSection = styled(Section)``
+
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 6rem 2rem;
-  overflow: hidden;
+  gap: 2rem;
+  width: 100%;
   max-width: ${theme.sizes.wrapper.maxWidth};
-  margin: 0 auto;
 `
 
 export const Timeline = styled.div`
@@ -63,7 +61,7 @@ export const TimelineItem = styled.div<{ isEven: boolean }>`
     box-shadow: 0 0 0 4px rgba(100, 255, 218, 0.2);
 
     @media (max-width: ${theme.breakpoints.mobile}) {
-      left: 2rem;
+      left: -2.13rem;
       transform: none;
     }
   }

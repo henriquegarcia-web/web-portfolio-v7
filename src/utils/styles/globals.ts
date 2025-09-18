@@ -1,10 +1,15 @@
 import { createGlobalStyle } from 'styled-components'
+import { theme } from '../constants'
 
 export const GlobalStyle = createGlobalStyle`
 :root {
-    font-size: 14px;
+    font-size: 12px;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: ${theme.breakpoints.tablet}) {
+      font-size: 14px;
+    }
+
+    @media screen and (min-width: ${theme.breakpoints.desktop}) {
       font-size: 16px;
     }
   }
@@ -19,9 +24,18 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     -webkit-tap-highlight-color: transparent !important;
     
-    /* font-family: "Roboto", sans-serif; */
-    font-family: "Montserrat", sans-serif;
+    font-family: "Roboto", sans-serif;
+    /* font-family: "Montserrat", sans-serif; */
     /* font-family: "Barlow", sans-serif; */
+    /* font-family: "Changa", sans-serif; */
+    /* font-family: "Smooch Sans", sans-serif; */
+    /* font-family: "Saira", sans-serif; */
+    /* font-family: "Exo", sans-serif; */
+    /* font-family: "Hubot Sans", sans-serif; */
+    
+    font-family: "Rubik", sans-serif;
+
+
 
   }
 

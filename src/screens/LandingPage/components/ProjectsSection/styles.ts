@@ -1,16 +1,8 @@
 import styled from 'styled-components'
 import { theme } from '@/utils/constants'
+import { Section } from '@/utils/styles'
 
-export const ProjectsSection = styled.section`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 6rem 2rem;
-  overflow: hidden;
-`
+export const ProjectsSection = styled(Section)``
 
 export const ProjectsGrid = styled.div`
   display: grid;

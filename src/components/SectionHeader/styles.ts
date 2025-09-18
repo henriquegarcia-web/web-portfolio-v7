@@ -1,3 +1,4 @@
+import { theme } from '@/utils/constants'
 import styled from 'styled-components'
 
 export const SectionHeader = styled.div`
@@ -26,6 +27,7 @@ export const BackgroundText = styled.h1`
   pointer-events: none;
   user-select: none;
 
+  text-align: center;
   font-size: 8rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -42,6 +44,10 @@ export const BackgroundText = styled.h1`
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    font-size: 6rem;
+  }
 `
 
 export const MainTitle = styled.h2`
@@ -52,16 +58,24 @@ export const MainTitle = styled.h2`
   font-weight: 900;
   letter-spacing: 0.1em;
   white-space: nowrap;
+  text-align: center;
 
   color: #ffffff;
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    font-size: 3rem;
+  }
 `
 
 export const Subtitle = styled.p`
-  font-size: 1rem;
-  font-weight: 500;
   margin: 0;
+
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+  text-align: center;
 
   color: #a0a0a0;
 `

@@ -35,7 +35,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
         <S.Description>{data.heroSummary}</S.Description>
 
         <S.CTAWrapper>
-          <Button href="#contact" icon="whatsapp" size="large">
+          <Button href={data.whatsapp} icon="whatsapp" size="large">
             Fale comigo
           </Button>
           <CopyButton label={data.email} value={data.email} />

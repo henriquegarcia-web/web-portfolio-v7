@@ -20,6 +20,11 @@ export const ExperienceCard = styled.div`
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     border-color: rgba(100, 255, 218, 0.2);
   }
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    margin-left: 2rem;
+    width: calc(100% - 5rem);
+  }
 `
 
 export const ExperienceHeader = styled.div`

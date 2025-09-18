@@ -16,3 +16,13 @@ export const ScreenFixed = styled.div`
   width: 100%;
   height: 100vh;
 `
+
+export const Section = styled.section`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 6rem 0;
+`
