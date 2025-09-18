@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 
 import * as S from './styles'
+import { progressBar } from '@/utils/constants'
 
 const ProgressBar: React.FC = () => {
   const [progress, setProgress] = useState(0)
@@ -21,7 +23,14 @@ const ProgressBar: React.FC = () => {
 
   return (
     <S.ProgressBarContainer>
-      <S.ProgressBarFill progress={progress} />
+      <motion.div
+        variants={progressBar}
+        initial="hidden"
+        animate="visible"
+        style={{ width: `${progress}%` }}
+      >
+        <S.ProgressBarFill progress={progress} />
+      </motion.div>
     </S.ProgressBarContainer>
   )
 }

@@ -1,6 +1,8 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 import * as S from './styles'
+import { hoverScale } from '@/utils/constants'
 
 interface TagProps {
   children: React.ReactNode
@@ -16,9 +18,11 @@ const Tag: React.FC<TagProps> = ({
   className,
 }) => {
   return (
-    <S.Tag color={color} size={size} className={className}>
-      {children}
-    </S.Tag>
+    <motion.div variants={hoverScale} whileHover="hover" whileTap="tap">
+      <S.Tag color={color} size={size} className={className}>
+        {children}
+      </S.Tag>
+    </motion.div>
   )
 }
 
