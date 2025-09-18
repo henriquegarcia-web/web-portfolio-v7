@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 import { IWorkExperience } from '@/utils/types'
 import { SectionHeader, ExperienceCard } from '@/components'
@@ -9,23 +10,72 @@ interface ExperienceSectionProps {
 }
 
 const ExperienceSection: React.FC<ExperienceSectionProps> = ({ data }) => {
-  return (
-    <S.ExperienceSection id="experience">
-      <S.Content>
-        <SectionHeader
-          mainTitle="Experiência"
-          backgroundText="Profissional"
-          subtitle="Minha jornada profissional e marcos de carreira"
-        />
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-100px' })
 
-        <S.Timeline>
-          {data.map((experience, index) => (
-            <S.TimelineItem key={experience.id} isEven={index % 2 === 0}>
-              <ExperienceCard experience={experience} />
-            </S.TimelineItem>
-          ))}
-        </S.Timeline>
-      </S.Content>
+  // Variantes de animação
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+    },
+  }
+
+  const timelineVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  }
+
+  return (
+    <S.ExperienceSection id="experience" ref={ref}>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+      >
+        <S.Content>
+          <motion.div variants={itemVariants}>
+            <SectionHeader
+              mainTitle="Experiência"
+              backgroundText="Profissional"
+              subtitle="Minha jornada profissional e marcos de carreira"
+            />
+          </motion.div>
+
+          <motion.div variants={timelineVariants}>
+            <S.Timeline>
+              {data.map((experience, index) => (
+                <S.TimelineItem key={experience.id} isEven={index % 2 === 0}>
+                  <ExperienceCard experience={experience} />
+                </S.TimelineItem>
+              ))}
+            </S.Timeline>
+          </motion.div>
+        </S.Content>
+      </motion.div>
     </S.ExperienceSection>
   )
 }

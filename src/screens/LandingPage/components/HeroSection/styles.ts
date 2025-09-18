@@ -53,7 +53,18 @@ const glow = keyframes`
   }
 `
 
-export const HeroSection = styled(Section)``
+export const HeroSection = styled(Section)`
+  .content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: ${theme.sizes.wrapper.maxWidth};
+    height: fit-content;
+  }
+`
 
 export const Content = styled.div`
   position: relative;
