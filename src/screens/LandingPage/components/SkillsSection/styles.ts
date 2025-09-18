@@ -23,17 +23,21 @@ export const SkillCategoryCard = styled.div`
   flex-direction: column;
   gap: 1.75rem;
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: ${theme.radius.lg};
   transition: all 0.3s ease;
   overflow: hidden;
 
-  backdrop-filter: blur(10px);
-  /* background: rgba(22, 22, 22, 0.5); */
-  border: 1px solid #2f2f2f;
+  /* Liquid Glass Effect */
+  background: ${theme.glass.background};
+  backdrop-filter: ${theme.glass.backdropFilter};
+  border: ${theme.glass.border};
+  box-shadow: ${theme.glass.boxShadow};
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    box-shadow: ${theme.shadows.md};
+    border-color: ${theme.colors.border.accent};
+    background: ${theme.colors.background.glassHover};
   }
 `
 
@@ -46,7 +50,7 @@ export const CategoryHeader = styled.div`
 export const CategoryTitle = styled.h3`
   font-size: 1.2rem;
   font-weight: 600;
-  color: #ffffff;
+  color: ${theme.colors.text.primary};
   margin: 0;
 `
 
@@ -54,7 +58,7 @@ export const ViewAllLink = styled.button`
   align-self: flex-end;
   background: none;
   border: none;
-  color: #64ffda;
+  color: ${theme.colors.primary};
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
@@ -63,9 +67,15 @@ export const ViewAllLink = styled.button`
   margin-top: 0.5rem;
 
   &:hover {
-    color: #ffffff;
+    color: ${theme.colors.text.primary};
     text-decoration: none;
   }
+`
+
+export const ViewAllButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
 `
 
 export const TechnologiesGrid = styled.div<{ $isFiltered?: boolean }>`
@@ -101,11 +111,12 @@ export const FilterContainer = styled.div`
 
 export const FilterButton = styled.button<{ $isActive: boolean }>`
   padding: 0.75rem 1.25rem;
-  border: 1px solid ${(props) => (props.$isActive ? '#64ffda' : '#2f2f2f')};
+  border: 1px solid
+    ${(props) => (props.$isActive ? theme.colors.primary : theme.colors.border.primary)};
   border-radius: 25px;
-  background: ${(props) =>
-    props.$isActive ? 'rgba(100, 255, 218, 0.1)' : 'transparent'};
-  color: ${(props) => (props.$isActive ? '#64ffda' : '#ffffff')};
+  background: ${(props) => (props.$isActive ? theme.colors.state.active : 'transparent')};
+  color: ${(props) =>
+    props.$isActive ? theme.colors.primary : theme.colors.text.primary};
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
@@ -113,9 +124,9 @@ export const FilterButton = styled.button<{ $isActive: boolean }>`
   backdrop-filter: blur(10px);
 
   &:hover {
-    border-color: #64ffda;
-    background: rgba(100, 255, 218, 0.1);
-    color: #64ffda;
+    border-color: ${theme.colors.primary};
+    background: ${theme.colors.state.active};
+    color: ${theme.colors.primary};
     transform: translateY(-2px);
   }
 
@@ -136,7 +147,7 @@ export const ContentSection = styled.div`
 export const SectionTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: 700;
-  color: #64ffda;
+  color: ${theme.colors.primary};
   margin: 0 0 1rem 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;

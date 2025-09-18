@@ -16,7 +16,7 @@ export interface IButtonProps {
   children?: React.ReactNode
   href?: string
   onClick?: () => void
-  variant?: 'primary' | 'secondary' | 'outline'
+  variant?: 'primary' | 'secondary' | 'outline' | 'link'
   size?: 'small' | 'medium' | 'large'
   icon?:
     | 'whatsapp'
@@ -63,10 +63,16 @@ const Button: React.FC<IButtonProps> = ({
   }
 
   const hasText = children && children.toString().trim() !== ''
-  const hasIcon = icon && icon !== 'none'
+  const hasIcon = icon && icon !== 'none' && variant !== 'link'
+  const isLinkVariant = variant === 'link'
 
-  // Caso 1: Apenas ícone (sem texto)
+  // Caso 1: Apenas ícone (sem texto) - não permitido para variante link
   if (!hasText && hasIcon) {
+    // Se for variante link sem texto, retornar null
+    if (isLinkVariant) {
+      return null
+    }
+
     const iconProps = {
       variant,
       size,
@@ -115,13 +121,13 @@ const Button: React.FC<IButtonProps> = ({
     )
   }
 
-  // Caso 3: Texto + Ícone
+  // Caso 3: Texto + Ícone (ignorar ícone se for variante link)
   if (hasText && hasIcon) {
     const buttonProps = {
       variant,
       size,
       disabled,
-      hasIcon,
+      hasIcon: !isLinkVariant, // Não considerar hasIcon para variante link
       className,
       'aria-label': ariaLabel,
     }
@@ -130,9 +136,11 @@ const Button: React.FC<IButtonProps> = ({
       return (
         <S.Button as="a" href={href} target="_blank" {...buttonProps}>
           <S.ButtonText>{children}</S.ButtonText>
-          <S.ButtonIconInternal variant={variant} size={size}>
-            {renderIcon()}
-          </S.ButtonIconInternal>
+          {!isLinkVariant && (
+            <S.ButtonIconInternal variant={variant} size={size}>
+              {renderIcon()}
+            </S.ButtonIconInternal>
+          )}
         </S.Button>
       )
     }
@@ -140,9 +148,11 @@ const Button: React.FC<IButtonProps> = ({
     return (
       <S.Button as="button" type="button" onClick={onClick} {...buttonProps}>
         <S.ButtonText>{children}</S.ButtonText>
-        <S.ButtonIconInternal variant={variant} size={size}>
-          {renderIcon()}
-        </S.ButtonIconInternal>
+        {!isLinkVariant && (
+          <S.ButtonIconInternal variant={variant} size={size}>
+            {renderIcon()}
+          </S.ButtonIconInternal>
+        )}
       </S.Button>
     )
   }

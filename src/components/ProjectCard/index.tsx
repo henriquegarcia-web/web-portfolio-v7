@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import * as S from './styles'
 import { Tag, ImageCarousel, Button } from '@/components'
@@ -10,11 +10,16 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) => {
+  const [isHovered, setIsHovered] = useState(false)
   return (
-    <S.ProjectCard className={className}>
+    <S.ProjectCard
+      className={className}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <S.ImageContainer>
         {project.images && project.images.length > 0 ? (
-          <ImageCarousel images={project.images} interval={2000} />
+          <ImageCarousel images={project.images} interval={2000} isActive={isHovered} />
         ) : (
           <S.PlaceholderImage>
             <S.PlaceholderIcon>📱</S.PlaceholderIcon>

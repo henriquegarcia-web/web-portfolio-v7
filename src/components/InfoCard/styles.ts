@@ -1,21 +1,26 @@
 import styled from 'styled-components'
+import { theme } from '@/utils/constants'
 
 export const InfoCard = styled.div<{ onlyTitle: boolean }>`
   display: flex;
   align-items: ${({ onlyTitle }) => (onlyTitle ? 'center' : 'flex-start')};
   gap: 1.25rem;
   padding: 1.25rem;
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  border-radius: ${theme.radius.lg};
+  transition: all 0.3s ease;
+  overflow: hidden;
 
-  background: #161616;
-  border: 1px solid #2f2f2f;
-  backdrop-filter: blur(10px);
+  /* Liquid Glass Effect */
+  background: ${theme.glass.background};
+  backdrop-filter: ${theme.glass.backdropFilter};
+  border: ${theme.glass.border};
+  box-shadow: ${theme.shadows.glass};
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.05);
-    border-color: rgba(100, 255, 218, 0.2);
+    box-shadow: ${theme.shadows.md};
+    border-color: ${theme.colors.border.accent};
+    background: ${theme.colors.background.glassHover};
   }
 `
 
@@ -26,11 +31,10 @@ export const CardIcon = styled.div`
   flex-shrink: 0;
   width: 44px;
   height: 44px;
-  border-radius: 4px;
-
+  border-radius: ${theme.radius.sm};
   font-size: 1.5rem;
-
-  background: rgba(100, 255, 218, 0.1);
+  background: ${theme.colors.state.active};
+  color: ${theme.colors.primary};
 `
 
 export const CardContent = styled.div`
@@ -43,14 +47,12 @@ export const CardContent = styled.div`
 export const CardTitle = styled.h4`
   font-size: 1rem;
   font-weight: 600;
-
-  color: #ffffff;
+  color: ${theme.colors.text.primary};
 `
 
 export const CardDescription = styled.p`
   font-size: 0.9rem;
   line-height: 1.4;
   text-align: left;
-
-  color: #a0a0a0;
+  color: ${theme.colors.text.tertiary};
 `

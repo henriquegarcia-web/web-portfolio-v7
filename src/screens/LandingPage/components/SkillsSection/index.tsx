@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import * as S from './styles'
-import { SectionHeader, SkillCard } from '@/components'
+import { SectionHeader, SkillCard, Button } from '@/components'
 import { ISkill } from '@/utils/types'
 import { useSmoothScroll } from '@/hooks'
 
@@ -68,9 +68,15 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ data }) => {
                 ))}
             </S.TechnologiesGrid>
             {activeFilter === 'all' && skill.technologies.length > 3 && (
-              <S.ViewAllLink onClick={() => handleExpandCategory(skill.category)}>
-                Ver todos
-              </S.ViewAllLink>
+              <S.ViewAllButtonContainer>
+                <Button
+                  onClick={() => handleExpandCategory(skill.category)}
+                  variant="link"
+                  size="small"
+                >
+                  Ver todos
+                </Button>
+              </S.ViewAllButtonContainer>
             )}
           </S.SkillCategoryCard>
         ))}

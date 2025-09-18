@@ -35,14 +35,10 @@ const shimmer = keyframes`
 
 const glow = keyframes`
   0%, 100% {
-    filter: drop-shadow(0 0 20px rgba(100, 255, 218, 0.3)) 
-            drop-shadow(0 0 40px rgba(255, 107, 107, 0.2))
-            drop-shadow(0 0 60px rgba(255, 217, 61, 0.1));
+    filter: drop-shadow(0 0 5px ${theme.colors.glow.primary});
   }
   50% {
-    filter: drop-shadow(0 0 30px rgba(100, 255, 218, 0.5)) 
-            drop-shadow(0 0 60px rgba(255, 107, 107, 0.3))
-            drop-shadow(0 0 90px rgba(255, 217, 61, 0.2));
+    filter: drop-shadow(0 0 8px ${theme.colors.shadow.primary});
   }
 `
 
@@ -61,7 +57,7 @@ export const Content = styled.div`
 
 export const Greeting = styled.h2`
   font-size: 1.25rem;
-  color: #64ffda;
+  color: ${theme.colors.primary};
   margin-bottom: 0.5rem;
   font-weight: 600;
   text-align: center;
@@ -79,11 +75,11 @@ export const Name = styled.h1`
   /* Gradiente animado principal */
   background: linear-gradient(
     135deg,
-    #64ffda 0%,
-    #ff6b6b 25%,
-    #ffd93d 50%,
-    #ff6b6b 75%,
-    #64ffda 100%
+    ${theme.colors.gradient.primary[0]} 0%,
+    ${theme.colors.gradient.primary[1]} 25%,
+    ${theme.colors.gradient.primary[2]} 50%,
+    ${theme.colors.gradient.primary[1]} 75%,
+    ${theme.colors.gradient.primary[0]} 100%
   );
   background-size: 300% 300%;
   background-clip: text;
@@ -122,9 +118,9 @@ export const Name = styled.h1`
     bottom: 0;
     background: linear-gradient(
       135deg,
-      rgba(100, 255, 218, 0.1) 0%,
-      rgba(255, 107, 107, 0.1) 50%,
-      rgba(255, 217, 61, 0.1) 100%
+      ${theme.colors.glow.primary} 0%,
+      ${theme.colors.glow.secondary} 50%,
+      ${theme.colors.glow.accent} 100%
     );
     background-size: 300% 300%;
     background-clip: text;
@@ -138,21 +134,19 @@ export const Name = styled.h1`
 
 export const Title = styled.h2`
   margin-bottom: 1.5rem;
-
   font-size: 1.75rem;
   font-weight: 500;
   text-align: center;
-
-  color: #ffffff;
+  color: ${theme.colors.text.primary};
 `
 
 export const TypewriterText = styled.span`
-  color: #64ffda;
+  color: ${theme.colors.primary};
   font-weight: 600;
 
   &::after {
     content: '|';
-    color: #64ffda;
+    color: ${theme.colors.primary};
     animation: ${blink} 1s infinite;
     margin-left: 2px;
   }
@@ -160,12 +154,10 @@ export const TypewriterText = styled.span`
 
 export const Description = styled.p`
   margin-bottom: 2rem;
-
   font-size: 1.1rem;
   line-height: 1.6;
   text-align: center;
-
-  color: #a0a0a0;
+  color: ${theme.colors.text.tertiary};
 `
 
 export const CTAWrapper = styled.div`
@@ -201,13 +193,13 @@ export const FloatingElements = styled.div`
 
 export const Element = styled.div`
   position: absolute;
-  background: rgba(100, 255, 218, 0.1);
-  color: #64ffda;
+  background: ${theme.colors.background.glass};
+  color: ${theme.colors.primary};
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 600;
-  border: 1px solid rgba(100, 255, 218, 0.3);
+  border: 1px solid ${theme.colors.border.accent};
   backdrop-filter: blur(10px);
   animation: ${float} 4s ease-in-out infinite;
 

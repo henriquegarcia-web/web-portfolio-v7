@@ -7,39 +7,77 @@ const getButtonVariantStyles = (variant: string) => {
   switch (variant) {
     case 'secondary':
       return css`
-        background: #1a1a2e;
-        color: #ffffff;
-        border: 1px solid #333;
+        background: ${theme.colors.background.tertiary};
+        color: ${theme.colors.text.primary};
+        border: 1px solid ${theme.colors.border.primary};
 
         &:hover {
-          background: #2a2a3e;
+          background: ${theme.colors.background.glassHover};
+          border-color: ${theme.colors.border.accent};
         }
       `
     case 'outline':
       return css`
         background: transparent;
-        color: #64ffda;
-        border: 1px solid #64ffda;
+        color: ${theme.colors.primary};
+        border: 1px solid ${theme.colors.primary};
 
         &:hover {
-          background: rgba(100, 255, 218, 0.1);
+          background: ${theme.colors.state.active};
+        }
+      `
+    case 'link':
+      return css`
+        background: none;
+        color: ${theme.colors.primary};
+        border: none;
+        text-decoration: underline;
+        font-weight: 500;
+        padding: 0;
+        height: auto;
+
+        &:hover {
+          color: ${theme.colors.text.primary};
+          text-decoration: none;
         }
       `
     case 'primary':
     default:
       return css`
-        background: #0a0a0a;
-        color: #ffffff;
-        border: 1px solid #333;
+        background: ${theme.colors.background.glass};
+        color: ${theme.colors.text.primary};
+        border: 1px solid ${theme.colors.border.primary};
+        backdrop-filter: ${theme.glass.backdropFilter};
 
         &:hover {
-          background: #1a1a1a;
+          background: ${theme.colors.background.glassHover};
+          border-color: ${theme.colors.border.accent};
         }
       `
   }
 }
 
-const getSizeStyles = (size: string, hasIcon: boolean) => {
+const getSizeStyles = (size: string, hasIcon: boolean, variant: string) => {
+  // Para variante link, usar estilos específicos
+  if (variant === 'link') {
+    switch (size) {
+      case 'small':
+        return css`
+          font-size: 0.8rem;
+        `
+      case 'large':
+        return css`
+          font-size: 1rem;
+        `
+      case 'medium':
+      default:
+        return css`
+          font-size: 0.9rem;
+        `
+    }
+  }
+
+  // Para outras variantes, usar estilos normais
   switch (size) {
     case 'small':
       return css`
@@ -119,7 +157,8 @@ export const Button = styled.button<IButtonProps & { hasIcon?: boolean }>`
   white-space: nowrap;
 
   ${({ variant = 'primary' }) => getButtonVariantStyles(variant)}
-  ${({ size = 'medium', hasIcon = false }) => getSizeStyles(size, hasIcon)}
+  ${({ size = 'medium', hasIcon = false, variant = 'primary' }) =>
+    getSizeStyles(size, hasIcon, variant)}
 
   &:disabled {
     opacity: 0.6;
@@ -143,19 +182,19 @@ const getIconInternalVariantStyles = (variant: string) => {
   switch (variant) {
     case 'secondary':
       return css`
-        background: #ffffff;
-        color: #1a1a2e;
+        background: ${theme.colors.text.primary};
+        color: ${theme.colors.background.tertiary};
       `
     case 'outline':
       return css`
-        background: #64ffda;
-        color: #0a0a0a;
+        background: ${theme.colors.primary};
+        color: ${theme.colors.background.primary};
       `
     case 'primary':
     default:
       return css`
-        background: #ffffff;
-        color: #0a0a0a;
+        background: ${theme.colors.text.primary};
+        color: ${theme.colors.background.primary};
       `
   }
 }
@@ -213,22 +252,39 @@ const getIconVariantStyles = (variant: string) => {
   switch (variant) {
     case 'secondary':
       return css`
-        background: #ffffff;
-        color: #1a1a2e;
-        border: 1px solid #ffffff;
+        background: ${theme.colors.text.primary};
+        color: ${theme.colors.background.tertiary};
+        border: 1px solid ${theme.colors.text.primary};
+
+        &:hover {
+          background: ${theme.colors.background.glassHover};
+          border-color: ${theme.colors.border.accent};
+        }
       `
     case 'outline':
       return css`
         background: transparent;
-        color: #ffffff;
-        border: 1px solid #ffffff;
+        color: ${theme.colors.text.primary};
+        border: 1px solid ${theme.colors.border.primary};
+
+        &:hover {
+          background: ${theme.colors.state.active};
+          border-color: ${theme.colors.border.accent};
+          box-shadow: ${theme.shadows.md};
+        }
       `
     case 'primary':
     default:
       return css`
-        background: #ffffff;
-        color: #0a0a0a;
-        border: 1px solid #ffffff;
+        background: ${theme.colors.background.glass};
+        color: ${theme.colors.text.primary};
+        border: 1px solid ${theme.colors.border.primary};
+        backdrop-filter: ${theme.glass.backdropFilter};
+
+        &:hover {
+          background: ${theme.colors.background.glassHover};
+          border-color: ${theme.colors.border.accent};
+        }
       `
   }
 }

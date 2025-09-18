@@ -8,17 +8,21 @@ export const ContactCard = styled.div`
   position: relative;
   min-width: ${theme.sizes.wrapper.contactSection};
   height: fit-content;
-  border-radius: 12px;
+  border-radius: ${theme.radius.lg};
   padding: 1.5rem;
   transition: all 0.3s ease;
 
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  /* Liquid Glass Effect */
+  background: ${theme.glass.background};
+  backdrop-filter: ${theme.glass.backdropFilter};
+  border: ${theme.glass.border};
+  box-shadow: ${theme.glass.boxShadow};
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: ${theme.shadows.lg};
+    border-color: ${theme.colors.border.accent};
+    background: ${theme.colors.background.glassHover};
   }
 
   @media (max-width: 768px) {
@@ -29,7 +33,7 @@ export const ContactCard = styled.div`
 export const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 `
 
 export const ContactItem = styled.div<{ color: string; isCopied: boolean }>`
@@ -37,17 +41,18 @@ export const ContactItem = styled.div<{ color: string; isCopied: boolean }>`
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 8px;
+  background: ${theme.colors.background.glass};
+  border-radius: ${theme.radius.md};
   transition: all 0.2s ease;
   border: 1px solid
-    ${({ isCopied }) => (isCopied ? '#64ffda' : 'rgba(255, 255, 255, 0.05)')};
+    ${({ isCopied }) => (isCopied ? theme.colors.primary : theme.colors.border.primary)};
   cursor: pointer;
   position: relative;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: ${theme.colors.background.glassHover};
     transform: translateY(-2px);
+    border-color: ${theme.colors.border.accent};
   }
 
   .icon-container {
@@ -75,7 +80,7 @@ export const ContactItem = styled.div<{ color: string; isCopied: boolean }>`
 
     .label {
       font-size: 0.75rem;
-      color: #a0a0a0;
+      color: ${theme.colors.text.tertiary};
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -85,7 +90,8 @@ export const ContactItem = styled.div<{ color: string; isCopied: boolean }>`
 
 export const ContactValue = styled.span<{ isCopied?: boolean }>`
   font-size: 1rem;
-  color: ${({ isCopied }) => (isCopied ? '#64ffda' : '#ffffff')};
+  color: ${({ isCopied }) =>
+    isCopied ? theme.colors.primary : theme.colors.text.primary};
   font-weight: 600;
   transition: color 0.3s ease;
 `
@@ -96,21 +102,23 @@ export const CopyIcon = styled.div<{ isCopied?: boolean }>`
   align-items: center;
   width: 36px;
   height: 36px;
-  border-radius: 8px;
+  border-radius: ${theme.radius.md};
   transition: all 0.2s ease;
 
-  color: ${({ isCopied }) => (isCopied ? '#64ffda' : '#a0a0a0')};
-  background: rgba(255, 255, 255, 0.05);
+  color: ${({ isCopied }) =>
+    isCopied ? theme.colors.primary : theme.colors.text.tertiary};
+  background: ${theme.colors.background.glass};
   border: 1px solid
-    ${({ isCopied }) => (isCopied ? '#64ffda' : 'rgba(255, 255, 255, 0.1)')};
+    ${({ isCopied }) => (isCopied ? theme.colors.primary : theme.colors.border.primary)};
 
   svg {
     font-size: 1rem;
   }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #64ffda;
+    background: ${theme.colors.background.glassHover};
+    color: ${theme.colors.primary};
+    border-color: ${theme.colors.border.accent};
   }
 `
 

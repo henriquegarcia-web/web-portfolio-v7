@@ -8,21 +8,24 @@ export const SkillCard = styled.div`
   justify-content: space-between;
   gap: 1rem;
   padding: 1em;
-  border-radius: 10px;
+  border-radius: ${theme.radius.lg};
   transition: all 0.3s ease;
   overflow: hidden;
 
-  background: #161616;
-  border: 1px solid #2f2f2f;
-  backdrop-filter: blur(10px);
+  /* Liquid Glass Effect */
+  background: ${theme.glass.background};
+  backdrop-filter: ${theme.glass.backdropFilter};
+  border: ${theme.glass.border};
+  box-shadow: ${theme.glass.boxShadow};
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    border-color: rgba(100, 255, 218, 0.2);
+    box-shadow: ${theme.shadows.md};
+    border-color: ${theme.colors.border.accent};
+    background: ${theme.colors.background.glassHover};
 
     h3 {
-      color: ${theme.colors.text.active};
+      color: ${theme.colors.text.primary};
     }
 
     svg {
@@ -55,11 +58,9 @@ export const SkillName = styled.h3`
   flex: 1;
   margin: 0;
   transition: all 0.2s ease;
-
   font-size: 1rem;
   font-weight: 600;
-
-  color: ${theme.colors.text.unhovered};
+  color: ${theme.colors.text.tertiary};
 `
 
 export const SkillLevel = styled.div`
@@ -80,24 +81,23 @@ export const MetricItem = styled.div`
   flex: 1;
   gap: 0.5rem;
   padding: 0.5rem;
-  border-radius: 6px;
+  border-radius: ${theme.radius.sm};
   transition: all 0.2s ease;
-
-  background: rgba(255, 255, 255, 0.05);
+  background: ${theme.colors.background.glass};
 
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: ${theme.colors.background.glassHover};
   }
 `
 
 export const MetricValue = styled.span`
   font-size: 0.9rem;
   font-weight: 700;
-  color: #64ffda;
+  color: ${theme.colors.primary};
 `
 
 export const MetricLabel = styled.span`
   font-size: 0.75rem;
-  color: #a0a0a0;
+  color: ${theme.colors.text.tertiary};
   text-align: center;
 `

@@ -60,7 +60,7 @@ export const MainTitle = styled.h2`
   white-space: nowrap;
   text-align: center;
 
-  color: #ffffff;
+  color: ${theme.colors.text.primary};
 
   @media (max-width: ${theme.breakpoints.mobile}) {
     font-size: 3rem;
@@ -77,5 +77,5 @@ export const Subtitle = styled.p`
   letter-spacing: 0.15em;
   text-align: center;
 
-  color: #a0a0a0;
+  color: ${theme.colors.text.tertiary};
 `

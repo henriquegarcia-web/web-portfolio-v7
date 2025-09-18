@@ -10,15 +10,19 @@ export const ExperienceCard = styled.div`
   padding: ${theme.spacing.xl};
   border-radius: ${theme.radius.lg};
   transition: all 0.3s ease;
+  overflow: hidden;
 
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  /* Liquid Glass Effect */
+  background: ${theme.glass.background};
+  backdrop-filter: ${theme.glass.backdropFilter};
+  border: ${theme.glass.border};
+  box-shadow: ${theme.glass.boxShadow};
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border-color: rgba(100, 255, 218, 0.2);
+    box-shadow: ${theme.shadows.lg};
+    border-color: ${theme.colors.border.accent};
+    background: ${theme.colors.background.glassHover};
   }
 
   @media (max-width: ${theme.breakpoints.mobile}) {
@@ -47,14 +51,14 @@ export const ExperienceTitle = styled.div`
   h3 {
     font-size: ${theme.fonts.sizes.xl};
     font-weight: ${theme.fonts.weights.bold};
-    color: ${theme.colors.text.active};
+    color: ${theme.colors.text.primary};
     font-family: ${theme.fonts.families.primary};
   }
 `
 
 export const CompanyName = styled.span`
   font-size: ${theme.fonts.sizes.md};
-  color: #64ffda;
+  color: ${theme.colors.primary};
   font-weight: ${theme.fonts.weights.medium};
   font-family: ${theme.fonts.families.primary};
 `
@@ -71,7 +75,7 @@ export const ExperienceDate = styled.div`
 
 export const Period = styled.span`
   font-size: ${theme.fonts.sizes.xs};
-  color: ${theme.colors.text.unhovered};
+  color: ${theme.colors.text.tertiary};
   font-family: ${theme.fonts.families.primary};
 `
 
@@ -82,7 +86,7 @@ export const ExperienceContent = styled.div`
 `
 
 export const ExperienceDescription = styled.p`
-  color: ${theme.colors.text.unhovered};
+  color: ${theme.colors.text.tertiary};
   font-size: ${theme.fonts.sizes.md};
   line-height: 1.6;
   margin: 0;

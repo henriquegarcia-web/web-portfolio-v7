@@ -34,12 +34,16 @@ export const GlobalStyle = createGlobalStyle`
     /* font-family: "Hubot Sans", sans-serif; */
     
     font-family: "Rubik", sans-serif;
-
-
-
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  body {
+    background: ${theme.colors.background.primary};
+    color: ${theme.colors.text.primary};
+    overflow-x: hidden;
+    position: relative;
   }
 `

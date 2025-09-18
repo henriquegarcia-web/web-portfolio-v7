@@ -3,24 +3,27 @@ import styled from 'styled-components'
 
 export const LandingPage = styled.div`
   position: relative;
-  color: #ffffff;
+  color: ${theme.colors.text.primary};
   overflow-x: hidden;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  background: ${theme.colors.background.primary};
+  min-height: 100vh;
 
+  /* Background minimalista */
   &::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(
-        circle at 20% 80%,
-        rgba(120, 119, 198, 0.3) 0%,
-        transparent 50%
-      ),
-      radial-gradient(circle at 80% 20%, rgba(30, 7, 20, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(13, 23, 30, 0.2) 0%, transparent 50%);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: ${theme.effects.noise.background},
+      linear-gradient(
+        135deg,
+        ${theme.colors.background.primary} 0%,
+        ${theme.colors.background.secondary} 100%
+      );
+    background-size: 50px 50px, 100% 100%;
     pointer-events: none;
   }
 `

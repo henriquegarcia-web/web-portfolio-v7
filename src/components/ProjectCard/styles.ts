@@ -1,23 +1,27 @@
 import styled from 'styled-components'
+import { theme } from '@/utils/constants'
 
 export const ProjectCard = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 1rem;
-  border-radius: 10px;
+  padding: 1.5rem;
+  border-radius: ${theme.radius.lg};
   transition: all 0.3s ease;
   overflow: hidden;
 
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  /* Liquid Glass Effect */
+  background: ${theme.glass.background};
+  backdrop-filter: ${theme.glass.backdropFilter};
+  border: ${theme.glass.border};
+  box-shadow: ${theme.glass.boxShadow};
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border-color: rgba(100, 255, 218, 0.2);
+    box-shadow: ${theme.shadows.lg};
+    border-color: ${theme.colors.border.accent};
+    background: ${theme.colors.background.glassHover};
   }
 `
 
@@ -29,11 +33,9 @@ export const CardHeader = styled.div`
 
 export const ProjectTitle = styled.h3`
   flex: 1;
-
   font-size: 1.125rem;
   font-weight: 700;
-
-  color: #ffffff;
+  color: ${theme.colors.text.primary};
 `
 
 export const ImageContainer = styled.div`
@@ -43,22 +45,28 @@ export const ImageContainer = styled.div`
 
 export const PlaceholderImage = styled.div`
   height: 200px;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  background: linear-gradient(
+    135deg,
+    ${theme.colors.background.secondary},
+    ${theme.colors.background.tertiary}
+  );
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: ${theme.radius.md};
+  border: 1px solid ${theme.colors.border.primary};
 `
 
 export const PlaceholderIcon = styled.div`
   font-size: 3rem;
   margin-bottom: 0.5rem;
   opacity: 0.5;
+  color: ${theme.colors.text.accent};
 `
 
 export const PlaceholderText = styled.p`
-  color: #a0a0a0;
+  color: ${theme.colors.text.tertiary};
   font-size: 0.9rem;
   opacity: 0.7;
 `
@@ -70,7 +78,7 @@ export const CardContent = styled.div`
 `
 
 export const ProjectDescription = styled.p`
-  color: #a0a0a0;
+  color: ${theme.colors.text.tertiary};
   font-size: 0.9rem;
   line-height: 1.4;
 `
@@ -85,12 +93,12 @@ export const FeatureItem = styled.li`
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #a0a0a0;
+  color: ${theme.colors.text.tertiary};
   font-size: 0.85rem;
 `
 
 export const CheckIcon = styled.span`
-  color: #64ffda;
+  color: ${theme.colors.primary};
   font-weight: bold;
   font-size: 0.9rem;
   flex-shrink: 0;

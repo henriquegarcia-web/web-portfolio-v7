@@ -21,3 +21,11 @@ export const ProjectsGrid = styled.div`
     gap: 1.5rem;
   }
 `
+
+export const ViewAllContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  max-width: ${theme.sizes.wrapper.maxWidth};
+  width: 100%;
+`

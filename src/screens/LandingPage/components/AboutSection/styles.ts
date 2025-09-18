@@ -60,7 +60,7 @@ export const ContentSection = styled.div`
 export const SectionTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: 700;
-  color: #64ffda;
+  color: ${theme.colors.primary};
   margin: 0 0 1rem 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -69,7 +69,7 @@ export const SectionTitle = styled.h3`
 export const SectionContent = styled.p`
   font-size: 1rem;
   line-height: 1.6;
-  color: #ffffff;
+  color: ${theme.colors.text.primary};
   margin: 0;
   text-align: justify;
 `

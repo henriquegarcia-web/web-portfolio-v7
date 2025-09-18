@@ -80,7 +80,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
           <Button
             href={getWhatsAppUrl(data.phone)}
             variant="primary"
-            size="large"
+            // size="large"
             icon="whatsapp"
           >
             WhatsApp
@@ -89,7 +89,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
           <Button
             href={data.socialLinks?.linkedin}
             variant="secondary"
-            size="large"
+            // size="large"
             icon="linkedin"
           >
             LinkedIn
