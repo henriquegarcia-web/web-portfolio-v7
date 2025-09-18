@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 
 import * as S from './styles'
 import { FaRegClone, FaCheck, FaRegEnvelope, FaPhone, FaMapPin } from 'react-icons/fa6'
@@ -7,15 +6,7 @@ import { FaRegClone, FaCheck, FaRegEnvelope, FaPhone, FaMapPin } from 'react-ico
 import { IPersonalInfo } from '@/utils/types'
 import SectionHeader from '@/components/SectionHeader'
 import Button from '@/components/Button'
-import { useCopyToClipboard, useScrollAnimation, useStaggerAnimation } from '@/hooks'
-import {
-  fadeInUp,
-  fadeInLeft,
-  fadeInRight,
-  staggerContainer,
-  staggerItem,
-  hoverScale,
-} from '@/utils/constants'
+import { useCopyToClipboard } from '@/hooks'
 
 interface ContactSectionProps {
   data: IPersonalInfo
@@ -23,10 +14,6 @@ interface ContactSectionProps {
 
 const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
   const { copiedItem, copyToClipboard } = useCopyToClipboard()
-  const { ref, isInView } = useScrollAnimation({ threshold: 0.1 })
-  const { ref: contactRef, isInView: contactInView } = useStaggerAnimation({
-    threshold: 0.1,
-  })
 
   const contactInfo = [
     {
@@ -59,92 +46,46 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
   }
 
   return (
-    <S.ContactSection id="contact" ref={ref}>
-      <motion.div
-        variants={fadeInUp}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-        transition={{ delay: 0.2 }}
-      >
-        <SectionHeader
-          mainTitle="Contato"
-          backgroundText="Fale Comigo"
-          subtitle="Pronto para dar vida às suas ideias?"
-        />
-      </motion.div>
+    <S.ContactSection id="contact">
+      <SectionHeader
+        mainTitle="Contato"
+        backgroundText="Fale Comigo"
+        subtitle="Pronto para dar vida às suas ideias?"
+      />
 
-      <motion.div
-        ref={contactRef}
-        variants={staggerContainer}
-        initial="hidden"
-        animate={contactInView ? 'visible' : 'hidden'}
-      >
-        <S.ContactCard>
-          <motion.div
-            variants={fadeInLeft}
-            initial="hidden"
-            animate={contactInView ? 'visible' : 'hidden'}
-            transition={{ delay: 0.4 }}
-          >
-            <S.ContactInfo>
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={index}
-                  variants={staggerItem}
-                  whileHover="hover"
-                  whileTap="tap"
-                >
-                  <S.ContactItem
-                    color={info.color}
-                    onClick={() => handleCopyClick(info.value)}
-                    isCopied={copiedItem === info.value}
-                  >
-                    <div className="icon-container">{info.icon}</div>
-                    <div className="content">
-                      <span className="label">{info.label}</span>
-                      <S.ContactValue isCopied={copiedItem === info.value}>
-                        {info.value}
-                      </S.ContactValue>
-                    </div>
-                    <S.CopyIcon isCopied={copiedItem === info.value}>
-                      {copiedItem === info.value ? <FaCheck /> : <FaRegClone />}
-                    </S.CopyIcon>
-                  </S.ContactItem>
-                </motion.div>
-              ))}
-            </S.ContactInfo>
-          </motion.div>
+      <S.ContactCard>
+        <S.ContactInfo>
+          {contactInfo.map((info, index) => (
+            <S.ContactItem
+              key={index}
+              color={info.color}
+              onClick={() => handleCopyClick(info.value)}
+              isCopied={copiedItem === info.value}
+            >
+              <div className="icon-container">{info.icon}</div>
+              <div className="content">
+                <span className="label">{info.label}</span>
+                <S.ContactValue isCopied={copiedItem === info.value}>
+                  {info.value}
+                </S.ContactValue>
+              </div>
+              <S.CopyIcon isCopied={copiedItem === info.value}>
+                {copiedItem === info.value ? <FaCheck /> : <FaRegClone />}
+              </S.CopyIcon>
+            </S.ContactItem>
+          ))}
+        </S.ContactInfo>
 
-          <motion.div
-            variants={fadeInRight}
-            initial="hidden"
-            animate={contactInView ? 'visible' : 'hidden'}
-            transition={{ delay: 0.6 }}
-          >
-            <S.SocialButtonsContainer>
-              <motion.div variants={hoverScale} whileHover="hover" whileTap="tap">
-                <Button
-                  href={getWhatsAppUrl(data.phone)}
-                  variant="primary"
-                  icon="whatsapp"
-                >
-                  WhatsApp
-                </Button>
-              </motion.div>
+        <S.SocialButtonsContainer>
+          <Button href={getWhatsAppUrl(data.phone)} variant="primary" icon="whatsapp">
+            WhatsApp
+          </Button>
 
-              <motion.div variants={hoverScale} whileHover="hover" whileTap="tap">
-                <Button
-                  href={data.socialLinks?.linkedin}
-                  variant="secondary"
-                  icon="linkedin"
-                >
-                  LinkedIn
-                </Button>
-              </motion.div>
-            </S.SocialButtonsContainer>
-          </motion.div>
-        </S.ContactCard>
-      </motion.div>
+          <Button href={data.socialLinks?.linkedin} variant="secondary" icon="linkedin">
+            LinkedIn
+          </Button>
+        </S.SocialButtonsContainer>
+      </S.ContactCard>
     </S.ContactSection>
   )
 }

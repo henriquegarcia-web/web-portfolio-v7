@@ -1,10 +1,8 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 
 import * as S from './styles'
 import { Tag, TechIcon } from '@/components'
 import { ISkillTechnology } from '@/utils/types/portfolio'
-import { hoverScale, hoverLift, fadeInUp, staggerItem } from '@/utils/constants'
 
 interface SkillCardProps {
   technology: ISkillTechnology
@@ -39,66 +37,32 @@ const SkillCard: React.FC<SkillCardProps> = ({ technology, className }) => {
   }
 
   return (
-    <motion.div
-      variants={hoverLift}
-      whileHover="hover"
-      whileTap="tap"
-      initial="hidden"
-      animate="visible"
-    >
-      <S.SkillCard className={className}>
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.1 }}
-        >
-          <S.SkillHeader>
-            <motion.div variants={hoverScale} whileHover="hover" whileTap="tap">
-              <S.SkillIcon>
-                <TechIcon iconKey={technology.iconKey} size="medium" />
-              </S.SkillIcon>
-            </motion.div>
-            <S.SkillName>{technology.name}</S.SkillName>
-            <S.SkillLevel>
-              <Tag color={getLevelColor(technology.level)} size="small">
-                {getLevelLabel(technology.level)}
-              </Tag>
-            </S.SkillLevel>
-          </S.SkillHeader>
-        </motion.div>
+    <S.SkillCard className={className}>
+      <S.SkillHeader>
+        <S.SkillIcon>
+          <TechIcon iconKey={technology.iconKey} size="medium" />
+        </S.SkillIcon>
+        <S.SkillName>{technology.name}</S.SkillName>
+        <S.SkillLevel>
+          <Tag color={getLevelColor(technology.level)} size="small">
+            {getLevelLabel(technology.level)}
+          </Tag>
+        </S.SkillLevel>
+      </S.SkillHeader>
 
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.2 }}
-        >
-          <S.SkillMetrics>
-            {[
-              { value: technology.projects, label: 'Projetos' },
-              { value: technology.jobs, label: 'Trabalhos' },
-              { value: technology.courses, label: 'Cursos' },
-            ].map((metric, index) => (
-              <motion.div
-                key={index}
-                variants={staggerItem}
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: 0.3 + index * 0.1 }}
-                whileHover="hover"
-                whileTap="tap"
-              >
-                <S.MetricItem>
-                  <S.MetricValue>{metric.value}</S.MetricValue>
-                  <S.MetricLabel>{metric.label}</S.MetricLabel>
-                </S.MetricItem>
-              </motion.div>
-            ))}
-          </S.SkillMetrics>
-        </motion.div>
-      </S.SkillCard>
-    </motion.div>
+      <S.SkillMetrics>
+        {[
+          { value: technology.projects, label: 'Projetos' },
+          { value: technology.jobs, label: 'Trabalhos' },
+          { value: technology.courses, label: 'Cursos' },
+        ].map((metric, index) => (
+          <S.MetricItem key={index}>
+            <S.MetricValue>{metric.value}</S.MetricValue>
+            <S.MetricLabel>{metric.label}</S.MetricLabel>
+          </S.MetricItem>
+        ))}
+      </S.SkillMetrics>
+    </S.SkillCard>
   )
 }
 

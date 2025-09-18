@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 
 import * as S from './styles'
 import {
@@ -12,7 +11,6 @@ import {
   FaBehance,
 } from 'react-icons/fa'
 import { IoDownloadOutline } from 'react-icons/io5'
-import { hoverScale, hoverLift } from '@/utils/constants'
 
 export interface IButtonProps {
   children?: React.ReactNode
@@ -85,20 +83,16 @@ const Button: React.FC<IButtonProps> = ({
 
     if (href) {
       return (
-        <motion.div variants={hoverScale} whileHover="hover" whileTap="tap">
-          <S.ButtonIcon as="a" href={href} target="_blank" {...iconProps}>
-            {renderIcon()}
-          </S.ButtonIcon>
-        </motion.div>
+        <S.ButtonIcon as="a" href={href} target="_blank" {...iconProps}>
+          {renderIcon()}
+        </S.ButtonIcon>
       )
     }
 
     return (
-      <motion.div variants={hoverScale} whileHover="hover" whileTap="tap">
-        <S.ButtonIcon as="button" type="button" onClick={onClick} {...iconProps}>
-          {renderIcon()}
-        </S.ButtonIcon>
-      </motion.div>
+      <S.ButtonIcon as="button" type="button" onClick={onClick} {...iconProps}>
+        {renderIcon()}
+      </S.ButtonIcon>
     )
   }
 
@@ -114,20 +108,16 @@ const Button: React.FC<IButtonProps> = ({
 
     if (href) {
       return (
-        <motion.div variants={hoverLift} whileHover="hover" whileTap="tap">
-          <S.Button as="a" href={href} target="_blank" {...buttonProps}>
-            <S.ButtonText>{children}</S.ButtonText>
-          </S.Button>
-        </motion.div>
+        <S.Button as="a" href={href} target="_blank" {...buttonProps}>
+          <S.ButtonText>{children}</S.ButtonText>
+        </S.Button>
       )
     }
 
     return (
-      <motion.div variants={hoverLift} whileHover="hover" whileTap="tap">
-        <S.Button as="button" type="button" onClick={onClick} {...buttonProps}>
-          <S.ButtonText>{children}</S.ButtonText>
-        </S.Button>
-      </motion.div>
+      <S.Button as="button" type="button" onClick={onClick} {...buttonProps}>
+        <S.ButtonText>{children}</S.ButtonText>
+      </S.Button>
     )
   }
 
@@ -144,22 +134,7 @@ const Button: React.FC<IButtonProps> = ({
 
     if (href) {
       return (
-        <motion.div variants={hoverLift} whileHover="hover" whileTap="tap">
-          <S.Button as="a" href={href} target="_blank" {...buttonProps}>
-            <S.ButtonText>{children}</S.ButtonText>
-            {!isLinkVariant && (
-              <S.ButtonIconInternal variant={variant} size={size}>
-                {renderIcon()}
-              </S.ButtonIconInternal>
-            )}
-          </S.Button>
-        </motion.div>
-      )
-    }
-
-    return (
-      <motion.div variants={hoverLift} whileHover="hover" whileTap="tap">
-        <S.Button as="button" type="button" onClick={onClick} {...buttonProps}>
+        <S.Button as="a" href={href} target="_blank" {...buttonProps}>
           <S.ButtonText>{children}</S.ButtonText>
           {!isLinkVariant && (
             <S.ButtonIconInternal variant={variant} size={size}>
@@ -167,7 +142,18 @@ const Button: React.FC<IButtonProps> = ({
             </S.ButtonIconInternal>
           )}
         </S.Button>
-      </motion.div>
+      )
+    }
+
+    return (
+      <S.Button as="button" type="button" onClick={onClick} {...buttonProps}>
+        <S.ButtonText>{children}</S.ButtonText>
+        {!isLinkVariant && (
+          <S.ButtonIconInternal variant={variant} size={size}>
+            {renderIcon()}
+          </S.ButtonIconInternal>
+        )}
+      </S.Button>
     )
   }
 

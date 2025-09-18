@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 
 import * as S from './styles'
-import { carouselSlide, hoverScale } from '@/utils/constants'
 
 interface ImageCarouselProps {
   images: string[]
@@ -43,42 +41,21 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   return (
     <S.CarouselContainer className={className}>
       <S.ImageWrapper>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentIndex}
-            variants={carouselSlide}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { type: 'spring', stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
-            }}
-            custom={1}
-          >
-            <S.Image
-              src={images[currentIndex]}
-              alt={`Project image ${currentIndex + 1}`}
-              $isActive={true}
-              $totalImages={images.length}
-            />
-          </motion.div>
-        </AnimatePresence>
+        <S.Image
+          src={images[currentIndex]}
+          alt={`Project image ${currentIndex + 1}`}
+          $isActive={true}
+          $totalImages={images.length}
+        />
       </S.ImageWrapper>
       {images.length > 1 && (
         <S.DotsContainer>
           {images.map((_, index) => (
-            <motion.div
+            <S.Dot
               key={index}
-              variants={hoverScale}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              <S.Dot
-                $isActive={index === currentIndex}
-                onClick={() => setCurrentIndex(index)}
-              />
-            </motion.div>
+              $isActive={index === currentIndex}
+              onClick={() => setCurrentIndex(index)}
+            />
           ))}
         </S.DotsContainer>
       )}
