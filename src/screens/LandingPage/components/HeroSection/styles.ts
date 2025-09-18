@@ -7,6 +7,17 @@ const float = keyframes`
   50% { transform: translateY(-20px); }
 `
 
+const fadeIn = keyframes`
+  0% { 
+    opacity: 0; 
+    transform: scale(0.8);
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+`
+
 const blink = keyframes`
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
@@ -201,41 +212,42 @@ export const Element = styled.div`
   font-weight: 600;
   border: 1px solid ${theme.colors.border.accent};
   backdrop-filter: blur(10px);
-  animation: ${float} 4s ease-in-out infinite;
+  opacity: 0;
+  animation: ${fadeIn} 0.6s ease-out forwards, ${float} 4s ease-in-out infinite;
 
   &.element-1 {
     top: -10%;
     right: 8%;
-    animation-delay: 3s;
+    animation-delay: 1.4s, 3s;
   }
 
   &.element-2 {
     top: -6%;
     left: 5%;
-    animation-delay: 1s;
+    animation-delay: 1.6s, 1s;
   }
 
   &.element-3 {
     bottom: 5%;
     right: 4%;
-    animation-delay: 1s;
+    animation-delay: 1.8s, 1s;
   }
 
   &.element-4 {
     bottom: -6%;
     left: 8%;
-    animation-delay: 2s;
+    animation-delay: 2s, 2s;
   }
 
   &.element-5 {
     top: 40%;
     left: 0%;
-    animation-delay: 3s;
+    animation-delay: 2.2s, 3s;
   }
 
   &.element-6 {
     top: 40%;
     right: 0%;
-    animation-delay: 2s;
+    animation-delay: 2.4s, 2s;
   }
 `

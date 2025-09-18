@@ -16,8 +16,8 @@ export const Menu = styled.ul`
   height: 100%;
   padding: 8px;
   border-radius: 30px;
-  background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(20px);
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 `

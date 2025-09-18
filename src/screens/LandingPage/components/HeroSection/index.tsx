@@ -5,7 +5,7 @@ import * as S from './styles'
 import { Button, CopyButton } from '@/components'
 import { useTypewriter, useScrollAnimation } from '@/hooks'
 import { IPersonalInfo } from '@/utils/types'
-import { fadeInUp, fadeInLeft, floating, textReveal } from '@/utils/constants'
+import { fadeInUp, fadeInLeft, textReveal } from '@/utils/constants'
 
 interface HeroSectionProps {
   data: IPersonalInfo
@@ -108,19 +108,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
 
         <S.FloatingElements>
           {floatingElements.map((element, index) => (
-            <motion.div
-              key={element}
-              className={`element-${index + 1}`}
-              variants={floating}
-              initial="hidden"
-              animate={isInView ? 'animate' : 'hidden'}
-              transition={{
-                delay: 1.4 + index * 0.1,
-                duration: 4 + index * 0.5,
-              }}
-            >
-              <S.Element>{element}</S.Element>
-            </motion.div>
+            <S.Element key={element} className={`element-${index + 1}`}>
+              {element}
+            </S.Element>
           ))}
         </S.FloatingElements>
       </S.Content>
