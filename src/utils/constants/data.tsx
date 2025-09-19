@@ -917,5 +917,5 @@ export const USER_DATA: IPortfolioData = {
     },
   ],
 
-  resumeUrl: '/resume-henrique-garcia.pdf',
+  resumeUrl: '/CURRICULO_HENRIQUE_PEREIRA_GARCIA_FULL_STACK.pdf',
 }

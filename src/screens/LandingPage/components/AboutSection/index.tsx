@@ -11,6 +11,7 @@ import {
   BulletList,
   type BulletItem,
 } from '@/components'
+import { useDownloadResume } from '@/hooks'
 import { IPortfolioData } from '@/utils/types'
 
 // Variantes de animação
@@ -67,6 +68,7 @@ interface AboutSectionProps {
 const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const { downloadResume } = useDownloadResume()
 
   const { personal, education, technicalAreas } = data
 
@@ -116,7 +118,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
               variant="primary"
               size="large"
               icon="download"
-              onClick={() => window.open(data.resumeUrl, '_blank')}
+              onClick={downloadResume}
             >
               Download CV
             </Button>
