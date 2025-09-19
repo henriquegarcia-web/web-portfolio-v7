@@ -1,7 +1,9 @@
 import React, { useState, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
 
 import * as S from './styles'
+
+import { useInView } from 'framer-motion'
+
 import {
   ProjectCard as ProjectCardComponent,
   SectionHeader,
@@ -97,44 +99,37 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
   }
 
   return (
-    <S.ProjectsSection id="projects" ref={ref}>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-      >
-        <SectionHeader
-          mainTitle="Projetos"
-          backgroundText="Projetos"
-          subtitle="Alguns dos meus trabalhos recentes"
-        />
+    <S.ProjectsSection
+      id="projects"
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+    >
+      <SectionHeader
+        mainTitle="Projetos"
+        backgroundText="Projetos"
+        subtitle="Alguns dos meus trabalhos recentes"
+      />
 
-        <motion.div variants={itemVariants}>
-          <S.ProjectsGrid>
-            {displayedProjects.map((project, index) => (
-              <motion.div
-                key={`${project.id}-${showAll}`}
-                variants={cardVariants}
-                custom={index}
-              >
-                <S.ProjectCardWrapper onClick={() => handleProjectClick(project)}>
-                  <ProjectCardComponent project={project} />
-                </S.ProjectCardWrapper>
-              </motion.div>
-            ))}
-          </S.ProjectsGrid>
-        </motion.div>
+      <S.ProjectsGrid variants={itemVariants}>
+        {displayedProjects.map((project, index) => (
+          <S.ProjectCardWrapper
+            variants={cardVariants}
+            onClick={() => handleProjectClick(project)}
+          >
+            <ProjectCardComponent project={project} />
+          </S.ProjectCardWrapper>
+        ))}
+      </S.ProjectsGrid>
 
-        {data.length > 6 && (
-          <motion.div variants={buttonVariants}>
-            <S.ViewAllContainer>
-              <Button onClick={handleToggleView} variant="link" size="medium">
-                {showAll ? 'Ver menos' : 'Ver todos'}
-              </Button>
-            </S.ViewAllContainer>
-          </motion.div>
-        )}
-      </motion.div>
+      {data.length > 6 && (
+        <S.ViewAllContainer variants={buttonVariants}>
+          <Button onClick={handleToggleView} variant="link" size="medium">
+            {showAll ? 'Ver menos' : 'Ver todos'}
+          </Button>
+        </S.ViewAllContainer>
+      )}
 
       <ProjectModal
         project={selectedProject}

@@ -1,7 +1,8 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import { theme } from '@/utils/constants'
 
-export const InfoCard = styled.div<{ onlyTitle: boolean }>`
+export const InfoCard = styled(motion.div)<{ onlyTitle: boolean }>`
   display: flex;
   align-items: ${({ onlyTitle }) => (onlyTitle ? 'center' : 'flex-start')};
   gap: 1.25rem;
@@ -24,7 +25,7 @@ export const InfoCard = styled.div<{ onlyTitle: boolean }>`
   }
 `
 
-export const CardIcon = styled.div`
+export const CardIcon = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,20 +38,20 @@ export const CardIcon = styled.div`
   color: ${theme.colors.primary};
 `
 
-export const CardContent = styled.div`
+export const CardContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   flex: 1;
 `
 
-export const CardTitle = styled.h4`
+export const CardTitle = styled(motion.h4)`
   font-size: 1rem;
   font-weight: 600;
   color: ${theme.colors.text.primary};
 `
 
-export const CardDescription = styled.p`
+export const CardDescription = styled(motion.p)`
   font-size: 0.9rem;
   line-height: 1.4;
   text-align: left;

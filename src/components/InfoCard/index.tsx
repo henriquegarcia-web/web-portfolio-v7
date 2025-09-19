@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useInView } from 'framer-motion'
 
 import * as S from './styles'
 
@@ -65,26 +65,19 @@ const InfoCard: React.FC<InfoCardProps> = ({ icon, title, description, className
   }
 
   return (
-    <S.InfoCard ref={ref} className={className} onlyTitle={onlyTitle}>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-      >
-        <motion.div variants={iconVariants}>
-          <S.CardIcon>{icon}</S.CardIcon>
-        </motion.div>
-        <motion.div variants={contentVariants}>
-          <S.CardContent>
-            <motion.div variants={textVariants}>
-              <S.CardTitle>{title}</S.CardTitle>
-            </motion.div>
-            <motion.div variants={textVariants}>
-              <S.CardDescription>{description}</S.CardDescription>
-            </motion.div>
-          </S.CardContent>
-        </motion.div>
-      </motion.div>
+    <S.InfoCard
+      ref={ref}
+      className={className}
+      onlyTitle={onlyTitle}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+    >
+      <S.CardIcon variants={iconVariants}>{icon}</S.CardIcon>
+      <S.CardContent variants={contentVariants}>
+        <S.CardTitle variants={textVariants}>{title}</S.CardTitle>
+        <S.CardDescription variants={textVariants}>{description}</S.CardDescription>
+      </S.CardContent>
     </S.InfoCard>
   )
 }

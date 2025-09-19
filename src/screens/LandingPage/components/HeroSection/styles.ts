@@ -1,6 +1,7 @@
+import styled, { keyframes } from 'styled-components'
+import { motion } from 'framer-motion'
 import { theme } from '@/utils/constants'
 import { Section } from '@/utils/styles'
-import styled, { keyframes } from 'styled-components'
 
 const float = keyframes`
   0%, 100% { transform: translateY(0px); }
@@ -53,20 +54,9 @@ const glow = keyframes`
   }
 `
 
-export const HeroSection = styled(Section)`
-  .content {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: ${theme.sizes.wrapper.maxWidth};
-    height: fit-content;
-  }
-`
+export const HeroSection = styled(Section)``
 
-export const Content = styled.div`
+export const Content = styled(motion.div)`
   position: relative;
   z-index: 3;
   display: flex;
@@ -77,7 +67,7 @@ export const Content = styled.div`
   height: fit-content;
 `
 
-export const Greeting = styled.h2`
+export const Greeting = styled(motion.h2)`
   font-size: 1.25rem;
   color: ${theme.colors.primary};
   margin-bottom: 0.5rem;
@@ -85,7 +75,7 @@ export const Greeting = styled.h2`
   text-align: center;
 `
 
-export const Name = styled.h1`
+export const Name = styled(motion.h1)`
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -154,7 +144,7 @@ export const Name = styled.h1`
   }
 `
 
-export const Title = styled.h2`
+export const Title = styled(motion.h2)`
   margin-bottom: 1.5rem;
   font-size: 1.75rem;
   font-weight: 500;
@@ -174,7 +164,7 @@ export const TypewriterText = styled.span`
   }
 `
 
-export const Description = styled.p`
+export const Description = styled(motion.p)`
   margin-bottom: 2rem;
   font-size: 1.1rem;
   line-height: 1.6;
@@ -182,7 +172,7 @@ export const Description = styled.p`
   color: ${theme.colors.text.tertiary};
 `
 
-export const CTAWrapper = styled.div`
+export const CTAWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -194,7 +184,7 @@ export const CTAWrapper = styled.div`
   }
 `
 
-export const SocialLinks = styled.div`
+export const SocialLinks = styled(motion.div)`
   display: flex;
   gap: 1rem;
   justify-content: center;

@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import { theme } from '@/utils/constants'
 import { Section } from '@/utils/styles'
+import { motion } from 'framer-motion'
 
 export const ContactSection = styled(Section)``
 
-export const ContactCard = styled.div`
+export const ContactCard = styled(motion.div)`
   position: relative;
   min-width: ${theme.sizes.wrapper.contactSection};
   height: fit-content;
@@ -36,7 +37,7 @@ export const ContactInfo = styled.div`
   gap: 1rem;
 `
 
-export const ContactItem = styled.div<{ color: string; isCopied: boolean }>`
+export const ContactItem = styled(motion.div)<{ color: string; isCopied: boolean }>`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -122,7 +123,7 @@ export const CopyIcon = styled.div<{ isCopied?: boolean }>`
   }
 `
 
-export const SocialButtonsContainer = styled.div`
+export const SocialButtonsContainer = styled(motion.div)`
   position: absolute;
   top: 100%;
   right: 0;

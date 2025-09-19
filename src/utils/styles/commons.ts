@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 // ===================================================== SCREEN
 
@@ -17,7 +18,7 @@ export const ScreenFixed = styled.div`
   height: 100vh;
 `
 
-export const Section = styled.section`
+export const Section = styled(motion.section)`
   position: relative;
   display: flex;
   flex-direction: column;

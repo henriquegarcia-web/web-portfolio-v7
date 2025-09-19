@@ -1,7 +1,9 @@
 import React, { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
 
 import * as S from './styles'
+
+import { useInView } from 'framer-motion'
+
 import { Button, CopyButton } from '@/components'
 import { useTypewriter } from '@/hooks'
 import { IPersonalInfo } from '@/utils/types'
@@ -96,55 +98,44 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
 
   return (
     <S.HeroSection id="home" ref={ref}>
-      <motion.div
-        className="content"
+      <S.Content
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
       >
-        <motion.div variants={itemVariants}>
-          <S.Greeting>Olá, eu sou o</S.Greeting>
-        </motion.div>
+        <S.Greeting variants={itemVariants}>Olá, eu sou o</S.Greeting>
 
-        <motion.div variants={nameVariants}>
-          <S.Name data-text={data.name}>{data.name}</S.Name>
-        </motion.div>
+        <S.Name variants={nameVariants} data-text={data.name}>
+          {data.name}
+        </S.Name>
 
-        <motion.div variants={itemVariants}>
-          <S.Title>
-            Desenvolvedor <S.TypewriterText>{currentText}</S.TypewriterText>
-          </S.Title>
-        </motion.div>
+        <S.Title variants={itemVariants}>
+          Desenvolvedor <S.TypewriterText>{currentText}</S.TypewriterText>
+        </S.Title>
 
-        <motion.div variants={itemVariants}>
-          <S.Description>{data.heroSummary}</S.Description>
-        </motion.div>
+        <S.Description variants={itemVariants}>{data.heroSummary}</S.Description>
 
-        <motion.div variants={ctaVariants}>
-          <S.CTAWrapper>
-            <Button href={data.whatsapp} icon="whatsapp" size="large">
-              Fale comigo
-            </Button>
-            <CopyButton label={data.email} value={data.email} />
-          </S.CTAWrapper>
-        </motion.div>
+        <S.CTAWrapper variants={ctaVariants}>
+          <Button href={data.whatsapp} icon="whatsapp" size="large">
+            Fale comigo
+          </Button>
+          <CopyButton label={data.email} value={data.email} />
+        </S.CTAWrapper>
 
-        <motion.div variants={socialVariants}>
-          <S.SocialLinks>
-            {socialLinks.map((link) => {
-              return (
-                <Button
-                  key={link.name}
-                  href={link.url}
-                  icon={link.icon as any}
-                  variant="primary"
-                  size="small"
-                  aria-label={link.name}
-                />
-              )
-            })}
-          </S.SocialLinks>
-        </motion.div>
+        <S.SocialLinks variants={socialVariants}>
+          {socialLinks.map((link) => {
+            return (
+              <Button
+                key={link.name}
+                href={link.url}
+                icon={link.icon as any}
+                variant="primary"
+                size="small"
+                aria-label={link.name}
+              />
+            )
+          })}
+        </S.SocialLinks>
 
         <S.FloatingElements>
           {floatingElements.map((element, index) => (
@@ -153,7 +144,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
             </S.Element>
           ))}
         </S.FloatingElements>
-      </motion.div>
+      </S.Content>
     </S.HeroSection>
   )
 }

@@ -1,7 +1,9 @@
 import React, { useState, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
 
 import * as S from './styles'
+
+import { useInView } from 'framer-motion'
+
 import { SectionHeader, SkillCard, Button } from '@/components'
 import { ISkill } from '@/utils/types'
 import { useSmoothScroll } from '@/hooks'
@@ -82,74 +84,67 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ data }) => {
   }
 
   return (
-    <S.SkillsSection id="skills" ref={ref}>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-      >
-        <SectionHeader
-          mainTitle="Skills"
-          backgroundText="Expertise"
-          subtitle="Tecnologias que domino e ferramentas que uso para dar vida às ideias"
-        />
+    <S.SkillsSection
+      id="skills"
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+    >
+      <SectionHeader
+        mainTitle="Skills"
+        backgroundText="Expertise"
+        subtitle="Tecnologias que domino e ferramentas que uso para dar vida às ideias"
+      />
 
-        <motion.div variants={filterVariants}>
-          <S.FilterContainer>
-            <S.FilterButton
-              onClick={() => setActiveFilter('all')}
-              $isActive={activeFilter === 'all'}
-            >
-              Todos
-            </S.FilterButton>
-            {data.map((skill) => (
-              <S.FilterButton
-                key={skill.category}
-                onClick={() => setActiveFilter(skill.category)}
-                $isActive={activeFilter === skill.category}
-              >
-                {skill.category}
-              </S.FilterButton>
-            ))}
-          </S.FilterContainer>
-        </motion.div>
+      <S.FilterContainer variants={filterVariants}>
+        <S.FilterButton
+          onClick={() => setActiveFilter('all')}
+          $isActive={activeFilter === 'all'}
+        >
+          Todos
+        </S.FilterButton>
+        {data.map((skill) => (
+          <S.FilterButton
+            key={skill.category}
+            onClick={() => setActiveFilter(skill.category)}
+            $isActive={activeFilter === skill.category}
+          >
+            {skill.category}
+          </S.FilterButton>
+        ))}
+      </S.FilterContainer>
 
-        <motion.div variants={itemVariants}>
-          <S.Content $isFiltered={activeFilter !== 'all'}>
-            {filteredData.map((skill, index) => (
-              <motion.div
-                key={`${skill.category}-${activeFilter}`}
-                variants={cardVariants}
-                custom={index}
-              >
-                <S.SkillCategoryCard>
-                  <S.CategoryHeader>
-                    <S.CategoryTitle>{skill.category}</S.CategoryTitle>
-                  </S.CategoryHeader>
-                  <S.TechnologiesGrid $isFiltered={activeFilter !== 'all'}>
-                    {skill.technologies
-                      .slice(0, activeFilter === 'all' ? 3 : skill.technologies.length)
-                      .map((tech, techIndex) => (
-                        <SkillCard key={techIndex} technology={tech} />
-                      ))}
-                  </S.TechnologiesGrid>
-                  {activeFilter === 'all' && skill.technologies.length > 3 && (
-                    <S.ViewAllButtonContainer>
-                      <Button
-                        onClick={() => handleExpandCategory(skill.category)}
-                        variant="link"
-                        size="small"
-                      >
-                        Ver todos
-                      </Button>
-                    </S.ViewAllButtonContainer>
-                  )}
-                </S.SkillCategoryCard>
-              </motion.div>
-            ))}
-          </S.Content>
-        </motion.div>
-      </motion.div>
+      <S.Content $isFiltered={activeFilter !== 'all'} variants={itemVariants}>
+        {filteredData.map((skill, index) => (
+          <S.SkillCategoryCard
+            key={`${skill.category}-${activeFilter}`}
+            variants={cardVariants}
+          >
+            <S.CategoryHeader>
+              <S.CategoryTitle>{skill.category}</S.CategoryTitle>
+            </S.CategoryHeader>
+            <S.TechnologiesGrid $isFiltered={activeFilter !== 'all'}>
+              {skill.technologies
+                .slice(0, activeFilter === 'all' ? 3 : skill.technologies.length)
+                .map((tech, techIndex) => (
+                  <SkillCard key={techIndex} technology={tech} />
+                ))}
+            </S.TechnologiesGrid>
+            {activeFilter === 'all' && skill.technologies.length > 3 && (
+              <S.ViewAllButtonContainer>
+                <Button
+                  onClick={() => handleExpandCategory(skill.category)}
+                  variant="link"
+                  size="small"
+                >
+                  Ver todos
+                </Button>
+              </S.ViewAllButtonContainer>
+            )}
+          </S.SkillCategoryCard>
+        ))}
+      </S.Content>
     </S.SkillsSection>
   )
 }

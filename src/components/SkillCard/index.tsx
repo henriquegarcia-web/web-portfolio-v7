@@ -1,7 +1,8 @@
 import React, { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
 
 import * as S from './styles'
+
+import { useInView } from 'framer-motion'
 import { Tag, TechIcon } from '@/components'
 import { ISkillTechnology } from '@/utils/types/portfolio'
 
@@ -103,47 +104,37 @@ const SkillCard: React.FC<SkillCardProps> = ({ technology, className }) => {
   }
 
   return (
-    <S.SkillCard ref={ref} className={className}>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-      >
-        <S.SkillHeader>
-          <motion.div variants={iconVariants}>
-            <S.SkillIcon>
-              <TechIcon iconKey={technology.iconKey} size="medium" />
-            </S.SkillIcon>
-          </motion.div>
-          <motion.div variants={textVariants}>
-            <S.SkillName>{technology.name}</S.SkillName>
-          </motion.div>
-          <motion.div variants={itemVariants}>
-            <S.SkillLevel>
-              <Tag color={getLevelColor(technology.level)} size="small">
-                {getLevelLabel(technology.level)}
-              </Tag>
-            </S.SkillLevel>
-          </motion.div>
-        </S.SkillHeader>
+    <S.SkillCard
+      ref={ref}
+      className={className}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+    >
+      <S.SkillHeader>
+        <S.SkillIcon variants={iconVariants}>
+          <TechIcon iconKey={technology.iconKey} size="medium" />
+        </S.SkillIcon>
+        <S.SkillName variants={textVariants}>{technology.name}</S.SkillName>
+        <S.SkillLevel variants={itemVariants}>
+          <Tag color={getLevelColor(technology.level)} size="small">
+            {getLevelLabel(technology.level)}
+          </Tag>
+        </S.SkillLevel>
+      </S.SkillHeader>
 
-        <motion.div variants={itemVariants}>
-          <S.SkillMetrics>
-            {[
-              { value: technology.projects, label: 'Projetos' },
-              { value: technology.jobs, label: 'Trabalhos' },
-              { value: technology.courses, label: 'Cursos' },
-            ].map((metric, index) => (
-              <motion.div key={index} variants={metricVariants} custom={index}>
-                <S.MetricItem>
-                  <S.MetricValue>{metric.value}</S.MetricValue>
-                  <S.MetricLabel>{metric.label}</S.MetricLabel>
-                </S.MetricItem>
-              </motion.div>
-            ))}
-          </S.SkillMetrics>
-        </motion.div>
-      </motion.div>
+      <S.SkillMetrics variants={itemVariants}>
+        {[
+          { value: technology.projects, label: 'Projetos' },
+          { value: technology.jobs, label: 'Trabalhos' },
+          { value: technology.courses, label: 'Cursos' },
+        ].map((metric, index) => (
+          <S.MetricItem variants={metricVariants}>
+            <S.MetricValue>{metric.value}</S.MetricValue>
+            <S.MetricLabel>{metric.label}</S.MetricLabel>
+          </S.MetricItem>
+        ))}
+      </S.SkillMetrics>
     </S.SkillCard>
   )
 }

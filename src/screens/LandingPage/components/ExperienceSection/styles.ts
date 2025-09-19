@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { theme } from '@/utils/constants'
 import { Section } from '@/utils/styles'
+import { motion } from 'framer-motion'
 
 export const ExperienceSection = styled(Section)``
 
@@ -12,7 +13,7 @@ export const Content = styled.div`
   max-width: ${theme.sizes.wrapper.maxWidth};
 `
 
-export const Timeline = styled.div`
+export const Timeline = styled(motion.div)`
   position: relative;
   width: 100%;
   max-width: ${theme.sizes.wrapper.maxWidth};
@@ -34,7 +35,7 @@ export const Timeline = styled.div`
   }
 `
 
-export const TimelineItem = styled.div<{ isEven: boolean }>`
+export const TimelineItem = styled(motion.div)<{ isEven: boolean }>`
   position: relative;
   margin-bottom: 4rem;
   display: flex;

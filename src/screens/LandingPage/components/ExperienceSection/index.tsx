@@ -1,9 +1,11 @@
 import React, { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+
+import * as S from './styles'
+
+import { useInView } from 'framer-motion'
 
 import { IWorkExperience } from '@/utils/types'
 import { SectionHeader, ExperienceCard } from '@/components'
-import * as S from './styles'
 
 interface ExperienceSectionProps {
   data: IWorkExperience[]
@@ -50,32 +52,31 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ data }) => {
   }
 
   return (
-    <S.ExperienceSection id="experience" ref={ref}>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-      >
-        <S.Content>
-          <motion.div variants={itemVariants}>
-            <SectionHeader
-              mainTitle="Experiência"
-              backgroundText="Profissional"
-              subtitle="Minha jornada profissional e marcos de carreira"
-            />
-          </motion.div>
-
-          <motion.div variants={timelineVariants}>
-            <S.Timeline>
-              {data.map((experience, index) => (
-                <S.TimelineItem key={experience.id} isEven={index % 2 === 0}>
-                  <ExperienceCard experience={experience} />
-                </S.TimelineItem>
-              ))}
-            </S.Timeline>
-          </motion.div>
-        </S.Content>
-      </motion.div>
+    <S.ExperienceSection
+      id="experience"
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+    >
+      <SectionHeader
+        mainTitle="Experiência"
+        backgroundText="Profissional"
+        subtitle="Minha jornada profissional e marcos de carreira"
+      />
+      <S.Content>
+        <S.Timeline variants={timelineVariants}>
+          {data.map((experience, index) => (
+            <S.TimelineItem
+              key={experience.id}
+              isEven={index % 2 === 0}
+              variants={itemVariants}
+            >
+              <ExperienceCard experience={experience} />
+            </S.TimelineItem>
+          ))}
+        </S.Timeline>
+      </S.Content>
     </S.ExperienceSection>
   )
 }

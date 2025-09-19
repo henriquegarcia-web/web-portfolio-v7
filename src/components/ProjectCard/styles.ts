@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 import { theme } from '@/utils/constants'
 
-export const ProjectCard = styled.div`
+export const ProjectCard = styled(motion.div)`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -25,7 +26,7 @@ export const ProjectCard = styled.div`
   }
 `
 
-export const CardHeader = styled.div`
+export const CardHeader = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -38,7 +39,7 @@ export const ProjectTitle = styled.h3`
   color: ${theme.colors.text.primary};
 `
 
-export const ImageContainer = styled.div`
+export const ImageContainer = styled(motion.div)`
   border-radius: 8px;
   overflow: hidden;
 `
@@ -88,7 +89,7 @@ export const ProjectDescription = styled.p`
   text-overflow: ellipsis;
 `
 
-export const FeaturesList = styled.ul`
+export const FeaturesList = styled(motion.ul)`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -109,7 +110,7 @@ export const CheckIcon = styled.span`
   flex-shrink: 0;
 `
 
-export const TechnologiesContainer = styled.div`
+export const TechnologiesContainer = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;

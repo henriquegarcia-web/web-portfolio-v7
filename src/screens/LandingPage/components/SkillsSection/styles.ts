@@ -1,10 +1,11 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import { theme } from '@/utils/constants'
 import { Section } from '@/utils/styles'
 
 export const SkillsSection = styled(Section)``
 
-export const Content = styled.div<{ $isFiltered?: boolean }>`
+export const Content = styled(motion.div)<{ $isFiltered?: boolean }>`
   display: grid;
   grid-template-columns: ${(props) => (props.$isFiltered ? '1fr' : '1fr 1fr')};
   gap: 2rem;
@@ -17,7 +18,7 @@ export const Content = styled.div<{ $isFiltered?: boolean }>`
   }
 `
 
-export const SkillCategoryCard = styled.div`
+export const SkillCategoryCard = styled(motion.div)`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -94,7 +95,7 @@ export const TechnologiesGrid = styled.div<{ $isFiltered?: boolean }>`
 
 // ====================================== FILTER SECTION
 
-export const FilterContainer = styled.div`
+export const FilterContainer = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

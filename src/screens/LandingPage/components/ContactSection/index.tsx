@@ -1,8 +1,9 @@
 import React, { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
 
 import * as S from './styles'
 import { FaRegClone, FaCheck, FaRegEnvelope, FaPhone, FaMapPin } from 'react-icons/fa6'
+
+import { useInView } from 'framer-motion'
 
 import { IPersonalInfo } from '@/utils/types'
 import SectionHeader from '@/components/SectionHeader'
@@ -49,19 +50,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
         staggerChildren: 0.2,
         delayChildren: 0.3,
       },
-    },
-  }
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
     },
   }
 
@@ -114,71 +102,53 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
   }
 
   return (
-    <S.ContactSection id="contact" ref={ref}>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-      >
-        <motion.div variants={itemVariants}>
-          <SectionHeader
-            mainTitle="Contato"
-            backgroundText="Fale Comigo"
-            subtitle="Pronto para dar vida às suas ideias?"
-          />
-        </motion.div>
+    <S.ContactSection
+      id="contact"
+      ref={ref}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+    >
+      <SectionHeader
+        mainTitle="Contato"
+        backgroundText="Fale Comigo"
+        subtitle="Pronto para dar vida às suas ideias?"
+      />
 
-        <motion.div variants={cardVariants}>
-          <S.ContactCard>
-            <S.ContactInfo>
-              {contactInfo.map((info, index) => (
-                <motion.div key={index} variants={contactItemVariants} custom={index}>
-                  <S.ContactItem
-                    color={info.color}
-                    onClick={() => handleCopyClick(info.value)}
-                    isCopied={copiedItem === info.value}
-                  >
-                    <div className="icon-container">{info.icon}</div>
-                    <div className="content">
-                      <span className="label">{info.label}</span>
-                      <S.ContactValue isCopied={copiedItem === info.value}>
-                        {info.value}
-                      </S.ContactValue>
-                    </div>
-                    <S.CopyIcon isCopied={copiedItem === info.value}>
-                      {copiedItem === info.value ? <FaCheck /> : <FaRegClone />}
-                    </S.CopyIcon>
-                  </S.ContactItem>
-                </motion.div>
-              ))}
-            </S.ContactInfo>
+      <S.ContactCard variants={cardVariants}>
+        <S.ContactInfo>
+          {contactInfo.map((info, index) => (
+            <S.ContactItem
+              key={index}
+              variants={contactItemVariants}
+              color={info.color}
+              onClick={() => handleCopyClick(info.value)}
+              isCopied={copiedItem === info.value}
+            >
+              <div className="icon-container">{info.icon}</div>
+              <div className="content">
+                <span className="label">{info.label}</span>
+                <S.ContactValue isCopied={copiedItem === info.value}>
+                  {info.value}
+                </S.ContactValue>
+              </div>
+              <S.CopyIcon isCopied={copiedItem === info.value}>
+                {copiedItem === info.value ? <FaCheck /> : <FaRegClone />}
+              </S.CopyIcon>
+            </S.ContactItem>
+          ))}
+        </S.ContactInfo>
 
-            <motion.div variants={buttonVariants}>
-              <S.SocialButtonsContainer>
-                <motion.div variants={buttonVariants} custom={0}>
-                  <Button
-                    href={getWhatsAppUrl(data.phone)}
-                    variant="primary"
-                    icon="whatsapp"
-                  >
-                    WhatsApp
-                  </Button>
-                </motion.div>
+        <S.SocialButtonsContainer variants={buttonVariants}>
+          <Button href={getWhatsAppUrl(data.phone)} variant="primary" icon="whatsapp">
+            WhatsApp
+          </Button>
 
-                <motion.div variants={buttonVariants} custom={1}>
-                  <Button
-                    href={data.socialLinks?.linkedin}
-                    variant="secondary"
-                    icon="linkedin"
-                  >
-                    LinkedIn
-                  </Button>
-                </motion.div>
-              </S.SocialButtonsContainer>
-            </motion.div>
-          </S.ContactCard>
-        </motion.div>
-      </motion.div>
+          <Button href={data.socialLinks?.linkedin} variant="secondary" icon="linkedin">
+            LinkedIn
+          </Button>
+        </S.SocialButtonsContainer>
+      </S.ContactCard>
     </S.ContactSection>
   )
 }

@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import { theme } from '@/utils/constants'
 import { Section } from '@/utils/styles'
+import { motion } from 'framer-motion'
 
 export const ProjectsSection = styled(Section)``
 
-export const ProjectsGrid = styled.div`
+export const ProjectsGrid = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -22,7 +23,7 @@ export const ProjectsGrid = styled.div`
   }
 `
 
-export const ViewAllContainer = styled.div`
+export const ViewAllContainer = styled(motion.div)`
   display: flex;
   justify-content: flex-end;
   margin-top: 2rem;
@@ -30,7 +31,7 @@ export const ViewAllContainer = styled.div`
   width: 100%;
 `
 
-export const ProjectCardWrapper = styled.div`
+export const ProjectCardWrapper = styled(motion.div)`
   cursor: pointer;
   transition: transform 0.2s ease;
 

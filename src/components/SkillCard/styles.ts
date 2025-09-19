@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 import { theme } from '@/utils/constants/theme'
 
-export const SkillCard = styled.div`
+export const SkillCard = styled(motion.div)`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -40,7 +41,7 @@ export const SkillHeader = styled.div`
   gap: 0.75rem;
 `
 
-export const SkillIcon = styled.div`
+export const SkillIcon = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,7 +55,7 @@ export const SkillIcon = styled.div`
   }
 `
 
-export const SkillName = styled.h3`
+export const SkillName = styled(motion.h3)`
   flex: 1;
   margin: 0;
   transition: all 0.2s ease;
@@ -63,18 +64,18 @@ export const SkillName = styled.h3`
   color: ${theme.colors.text.tertiary};
 `
 
-export const SkillLevel = styled.div`
+export const SkillLevel = styled(motion.div)`
   display: flex;
   align-items: center;
 `
 
-export const SkillMetrics = styled.div`
+export const SkillMetrics = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
 `
 
-export const MetricItem = styled.div`
+export const MetricItem = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;

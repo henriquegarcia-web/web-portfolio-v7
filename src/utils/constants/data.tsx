@@ -181,7 +181,7 @@ export const USER_DATA: IPortfolioData = {
     },
     {
       id: 'jogos-2025',
-      degree: 'Bacharelado EAD em Jogos Digitais',
+      degree: 'Superior EAD de Tecnologia em Jogos Digitais',
       institution: 'UNP',
       location: 'Natal, RN',
       startDate: '2025-09',

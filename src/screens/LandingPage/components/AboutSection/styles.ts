@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion';
 import { theme } from '@/utils/constants'
 import { Section } from '@/utils/styles'
 
@@ -17,19 +18,19 @@ export const Content = styled.div`
 `
 
 // Left Column Styles
-export const LeftColumn = styled.div`
+export const LeftColumn = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 2rem;
 `
 
-export const CardsContainer = styled.div`
+export const CardsContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 1rem;
 `
 
-export const DownloadButton = styled.div`
+export const DownloadButton = styled(motion.div)`
   margin: 0 1rem 0 0;
 
   @media (max-width: ${theme.breakpoints.mobile}) {
@@ -38,7 +39,7 @@ export const DownloadButton = styled.div`
 `
 
 // Right Column Styles
-export const RightColumn = styled.div`
+export const RightColumn = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -51,7 +52,7 @@ export const TechnicalsWrapper = styled.div`
 `
 // ====================================== CONTENT SECTION
 
-export const ContentSection = styled.div`
+export const ContentSection = styled(motion.div)`
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
