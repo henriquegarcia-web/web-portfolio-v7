@@ -123,16 +123,16 @@ const ContactSection: React.FC<ContactSectionProps> = ({ data }) => {
               variants={contactItemVariants}
               color={info.color}
               onClick={() => handleCopyClick(info.value)}
-              isCopied={copiedItem === info.value}
+              $isCopied={copiedItem === info.value}
             >
               <div className="icon-container">{info.icon}</div>
               <div className="content">
                 <span className="label">{info.label}</span>
-                <S.ContactValue isCopied={copiedItem === info.value}>
+                <S.ContactValue $isCopied={copiedItem === info.value}>
                   {info.value}
                 </S.ContactValue>
               </div>
-              <S.CopyIcon isCopied={copiedItem === info.value}>
+              <S.CopyIcon $isCopied={copiedItem === info.value}>
                 {copiedItem === info.value ? <FaCheck /> : <FaRegClone />}
               </S.CopyIcon>
             </S.ContactItem>

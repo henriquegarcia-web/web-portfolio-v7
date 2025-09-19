@@ -127,7 +127,7 @@ const Button: React.FC<IButtonProps> = ({
       variant,
       size,
       disabled,
-      hasIcon: !isLinkVariant, // Não considerar hasIcon para variante link
+      $hasIcon: !isLinkVariant, // Não considerar hasIcon para variante link
       className,
       'aria-label': ariaLabel,
     }

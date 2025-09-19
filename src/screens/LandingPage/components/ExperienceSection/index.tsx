@@ -68,7 +68,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ data }) => {
         <S.Timeline variants={timelineVariants}>
           {data.map((experience, index) => (
             <S.TimelineItem
-              key={experience.id}
+              key={`experience-${experience.id}`}
               isEven={index % 2 === 0}
               variants={itemVariants}
             >

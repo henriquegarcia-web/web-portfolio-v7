@@ -37,7 +37,7 @@ export const ContactInfo = styled.div`
   gap: 1rem;
 `
 
-export const ContactItem = styled(motion.div)<{ color: string; isCopied: boolean }>`
+export const ContactItem = styled(motion.div)<{ color: string; $isCopied: boolean }>`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -46,7 +46,7 @@ export const ContactItem = styled(motion.div)<{ color: string; isCopied: boolean
   border-radius: ${theme.radius.md};
   transition: all 0.2s ease;
   border: 1px solid
-    ${({ isCopied }) => (isCopied ? theme.colors.primary : theme.colors.border.primary)};
+    ${({ $isCopied }) => ($isCopied ? theme.colors.primary : theme.colors.border.primary)};
   cursor: pointer;
   position: relative;
 
@@ -89,15 +89,15 @@ export const ContactItem = styled(motion.div)<{ color: string; isCopied: boolean
   }
 `
 
-export const ContactValue = styled.span<{ isCopied?: boolean }>`
+export const ContactValue = styled.span<{ $isCopied?: boolean }>`
   font-size: 1rem;
-  color: ${({ isCopied }) =>
-    isCopied ? theme.colors.primary : theme.colors.text.primary};
+  color: ${({ $isCopied }) =>
+    $isCopied ? theme.colors.primary : theme.colors.text.primary};
   font-weight: 600;
   transition: color 0.3s ease;
 `
 
-export const CopyIcon = styled.div<{ isCopied?: boolean }>`
+export const CopyIcon = styled.div<{ $isCopied?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,11 +106,11 @@ export const CopyIcon = styled.div<{ isCopied?: boolean }>`
   border-radius: ${theme.radius.md};
   transition: all 0.2s ease;
 
-  color: ${({ isCopied }) =>
-    isCopied ? theme.colors.primary : theme.colors.text.tertiary};
+  color: ${({ $isCopied }) =>
+    $isCopied ? theme.colors.primary : theme.colors.text.tertiary};
   background: ${theme.colors.background.glass};
   border: 1px solid
-    ${({ isCopied }) => (isCopied ? theme.colors.primary : theme.colors.border.primary)};
+    ${({ $isCopied }) => ($isCopied ? theme.colors.primary : theme.colors.border.primary)};
 
   svg {
     font-size: 1rem;

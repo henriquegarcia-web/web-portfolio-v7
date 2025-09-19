@@ -143,7 +143,7 @@ const getIconSizeStyles = (size: string) => {
   }
 }
 
-export const Button = styled.button<IButtonProps & { hasIcon?: boolean }>`
+export const Button = styled.button<IButtonProps & { $hasIcon?: boolean }>`
   position: relative;
   display: flex;
   align-items: center;
@@ -157,8 +157,8 @@ export const Button = styled.button<IButtonProps & { hasIcon?: boolean }>`
   white-space: nowrap;
 
   ${({ variant = 'primary' }) => getButtonVariantStyles(variant)}
-  ${({ size = 'medium', hasIcon = false, variant = 'primary' }) =>
-    getSizeStyles(size, hasIcon, variant)}
+  ${({ size = 'medium', $hasIcon = false, variant = 'primary' }) =>
+    getSizeStyles(size, $hasIcon, variant)}
 
   &:disabled {
     opacity: 0.6;

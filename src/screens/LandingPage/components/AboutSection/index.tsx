@@ -126,8 +126,9 @@ const AboutSection: React.FC<AboutSectionProps> = ({ data }) => {
         <S.RightColumn variants={rightColumnVariants}>
           <ContentSection title="Áreas de Foco">
             <S.TechnicalsWrapper>
-              {technicalAreas.map((area, index) => (
+              {technicalAreas.map((area) => (
                 <InfoCard
+                  key={`area-${area.title}`}
                   icon={area.icon}
                   title={area.title}
                   description={area.description}

@@ -113,8 +113,9 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ data }) => {
       />
 
       <S.ProjectsGrid variants={itemVariants}>
-        {displayedProjects.map((project, index) => (
+        {displayedProjects.map((project) => (
           <S.ProjectCardWrapper
+            key={`project-${project.id}`}
             variants={cardVariants}
             onClick={() => handleProjectClick(project)}
           >

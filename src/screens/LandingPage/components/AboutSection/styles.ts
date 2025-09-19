@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
 import { theme } from '@/utils/constants'
 import { Section } from '@/utils/styles'
 
@@ -67,7 +67,7 @@ export const SectionTitle = styled.h3`
   letter-spacing: 0.5px;
 `
 
-export const SectionContent = styled.p`
+export const SectionContent = styled.div`
   font-size: 1rem;
   line-height: 1.6;
   color: ${theme.colors.text.primary};

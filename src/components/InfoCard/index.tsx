@@ -68,7 +68,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ icon, title, description, className
     <S.InfoCard
       ref={ref}
       className={className}
-      onlyTitle={onlyTitle}
+      $onlyTitle={onlyTitle}
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}

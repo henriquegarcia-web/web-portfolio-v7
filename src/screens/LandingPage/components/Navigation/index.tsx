@@ -34,7 +34,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onMenuItemClick 
     <S.Nav>
       <S.Menu>
         {menuItems.map((item) => (
-          <S.MenuItem key={item.id} isActive={activeSection === item.id}>
+          <S.MenuItem key={item.id} $isActive={activeSection === item.id}>
             <a href={item.href} onClick={(e) => handleMenuItemClick(e, item.id)}>
               {item.label}
             </a>

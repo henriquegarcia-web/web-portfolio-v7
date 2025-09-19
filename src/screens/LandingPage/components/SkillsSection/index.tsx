@@ -106,7 +106,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ data }) => {
         </S.FilterButton>
         {data.map((skill) => (
           <S.FilterButton
-            key={skill.category}
+            key={`filter-${skill.category}`}
             onClick={() => setActiveFilter(skill.category)}
             $isActive={activeFilter === skill.category}
           >
@@ -116,7 +116,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ data }) => {
       </S.FilterContainer>
 
       <S.Content $isFiltered={activeFilter !== 'all'} variants={itemVariants}>
-        {filteredData.map((skill, index) => (
+        {filteredData.map((skill) => (
           <S.SkillCategoryCard
             key={`${skill.category}-${activeFilter}`}
             variants={cardVariants}
@@ -127,8 +127,8 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ data }) => {
             <S.TechnologiesGrid $isFiltered={activeFilter !== 'all'}>
               {skill.technologies
                 .slice(0, activeFilter === 'all' ? 3 : skill.technologies.length)
-                .map((tech, techIndex) => (
-                  <SkillCard key={techIndex} technology={tech} />
+                .map((tech) => (
+                  <SkillCard key={`tech-${tech.name}`} technology={tech} />
                 ))}
             </S.TechnologiesGrid>
             {activeFilter === 'all' && skill.technologies.length > 3 && (

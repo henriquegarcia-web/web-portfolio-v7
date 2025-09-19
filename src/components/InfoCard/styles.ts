@@ -2,9 +2,9 @@ import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import { theme } from '@/utils/constants'
 
-export const InfoCard = styled(motion.div)<{ onlyTitle: boolean }>`
+export const InfoCard = styled(motion.div)<{ $onlyTitle: boolean }>`
   display: flex;
-  align-items: ${({ onlyTitle }) => (onlyTitle ? 'center' : 'flex-start')};
+  align-items: ${({ $onlyTitle }) => ($onlyTitle ? 'center' : 'flex-start')};
   gap: 1.25rem;
   padding: 1.25rem;
   border-radius: ${theme.radius.lg};
@@ -45,13 +45,13 @@ export const CardContent = styled(motion.div)`
   flex: 1;
 `
 
-export const CardTitle = styled(motion.h4)`
+export const CardTitle = styled(motion.div)`
   font-size: 1rem;
   font-weight: 600;
   color: ${theme.colors.text.primary};
 `
 
-export const CardDescription = styled(motion.p)`
+export const CardDescription = styled(motion.div)`
   font-size: 0.9rem;
   line-height: 1.4;
   text-align: left;

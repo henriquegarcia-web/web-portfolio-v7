@@ -46,7 +46,7 @@ export const BackgroundText = styled.h1`
   -webkit-text-fill-color: transparent;
 
   @media (max-width: ${theme.breakpoints.mobile}) {
-    font-size: 6rem;
+    font-size: 5.5rem;
   }
 `
 

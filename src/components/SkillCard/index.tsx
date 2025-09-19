@@ -128,8 +128,8 @@ const SkillCard: React.FC<SkillCardProps> = ({ technology, className }) => {
           { value: technology.projects, label: 'Projetos' },
           { value: technology.jobs, label: 'Trabalhos' },
           { value: technology.courses, label: 'Cursos' },
-        ].map((metric, index) => (
-          <S.MetricItem variants={metricVariants}>
+        ].map((metric) => (
+          <S.MetricItem key={`metric-${metric.label}`} variants={metricVariants}>
             <S.MetricValue>{metric.value}</S.MetricValue>
             <S.MetricLabel>{metric.label}</S.MetricLabel>
           </S.MetricItem>

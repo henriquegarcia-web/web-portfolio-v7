@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as S from './styles'
 
-import { ProgressBar } from '@/components'
+import { ProgressBar, WhatsAppButton } from '@/components'
 import { useScrollSpy } from '@/hooks'
 import { USER_DATA } from '@/utils/constants/data'
 
@@ -34,6 +34,8 @@ const LandingPage: React.FC = () => {
         <ExperienceSection data={USER_DATA.experience} />
         <ContactSection data={USER_DATA.personal} />
       </S.LandingPageContent>
+
+      <WhatsAppButton activeSection={activeSection} />
     </S.LandingPage>
   )
 }
