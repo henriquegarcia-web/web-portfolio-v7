@@ -32,6 +32,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onMenuItemClick 
 
   return (
     <S.Nav>
+      <S.NavSpacer />
+
       <S.Menu>
         {menuItems.map((item) => (
           <S.MenuItem key={item.id} $isActive={activeSection === item.id}>
@@ -41,8 +43,15 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onMenuItemClick 
           </S.MenuItem>
         ))}
       </S.Menu>
+
+      <S.SpecialNav>
+        <S.ServicesItem>
+          <a href="/services">Minhas Soluções</a>
+        </S.ServicesItem>
+      </S.SpecialNav>
     </S.Nav>
   )
 }
 
 export default Navigation
+

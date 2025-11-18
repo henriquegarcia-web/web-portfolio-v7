@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as S from './styles'
 
-import { ProgressBar, WhatsAppButton } from '@/components'
+import { Navigation, ProgressBar, WhatsAppButton } from '@/components'
 import { useScrollSpy } from '@/hooks'
 import { USER_DATA } from '@/utils/constants/data'
 
@@ -10,7 +10,6 @@ import AboutSection from './components/AboutSection'
 import ContactSection from './components/ContactSection'
 import ExperienceSection from './components/ExperienceSection'
 import HeroSection from './components/HeroSection'
-import Navigation from './components/Navigation'
 import ProjectsSection from './components/ProjectsSection'
 import SkillsSection from './components/SkillsSection'
 
