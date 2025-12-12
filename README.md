@@ -2,6 +2,8 @@
 
 Portfolio pessoal desenvolvido com React, Vite, TypeScript, Styled Components e Framer Motion.
 
+[Acesse Aqui](https://henriquegarcia.dev.br/)
+
 ## 🚀 Tecnologias
 
 - **React 18** - Biblioteca de interface
@@ -151,34 +153,3 @@ Edite `src/utils/constants/data.tsx` para:
 - Atualizar informações pessoais
 - Adicionar/remover projetos
 - Modificar skills e experiências
-
-## 📱 Responsividade
-
-O projeto é totalmente responsivo com breakpoints:
-
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-## 🔧 Performance
-
-- **Code Splitting**: Chunks otimizados por funcionalidade
-- **Lazy Loading**: Componentes carregados sob demanda
-- **Image Optimization**: Imagens otimizadas automaticamente
-- **Bundle Analysis**: Use `npm run build` para ver o tamanho dos chunks
-
-## 📄 Licença
-
-Este projeto é de uso pessoal. Sinta-se livre para usar como inspiração para seu próprio portfolio.
-
-## 🤝 Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para:
-
-- Reportar bugs
-- Sugerir melhorias
-- Enviar pull requests
-
----
-
-**Desenvolvido com ❤️ usando React, TypeScript e Framer Motion**
