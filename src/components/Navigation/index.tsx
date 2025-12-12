@@ -45,13 +45,12 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, onMenuItemClick 
       </S.Menu>
 
       <S.SpecialNav>
-        <S.ServicesItem>
+        {/* <S.ServicesItem>
           <a href="/services">Minhas Soluções</a>
-        </S.ServicesItem>
+        </S.ServicesItem> */}
       </S.SpecialNav>
     </S.Nav>
   )
 }
 
 export default Navigation
-
