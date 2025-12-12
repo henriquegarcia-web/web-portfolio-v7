@@ -11,8 +11,8 @@ export const USER_DATA: IPortfolioData = {
       hero: ['Full-Stack', 'Front-End', 'E-commerce', 'Mobile', 'de Jogos', 'Back-End'],
     },
     email: 'henriquegarcia.tech@gmail.com',
-    phone: '+55 84 99814-7860',
-    whatsapp: `https://wa.me/5584998147860?text=${encodedMessage}`,
+    phone: '+55 84 9 9167-5322',
+    whatsapp: `https://wa.me/5584991675322?text=${encodedMessage}`,
     location: 'Natal, RN',
     summary:
       'Sou um profissional proativo e movido por desafios, com mais de cinco anos dedicados à construção de softwares. Tenho uma abordagem orientada à solução e o hábito de me aprofundar em novas tecnologias de forma autodidata. Em meu tempo livre, gosto de aplicar minhas habilidades em projetos variados, que vão desde a construção de sistemas e aplicativos complexos até o desenvolvimento de jogos.',
